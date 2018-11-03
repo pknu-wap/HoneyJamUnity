@@ -5,11 +5,11 @@ using UnityEngine.UI;
 public class Counter : MonoBehaviour
 {
 
-    public static int yourCount;//플레이어가 누른 카운터 
+    public int yourCount;//플레이어가 누른 카운터 
 
     public Text yourCountText; //플레이어가 누른 카운터 수를 나타내는 텍스트
 
-    private static int remainingCount;//카운터의 남은 수
+    private  int remainingCount;//카운터의 남은 수
 
     public Text remainingCountText; //카운터의 남은 수를 나타내는 텍스트
 
@@ -19,7 +19,7 @@ public class Counter : MonoBehaviour
         set
         {
             if (remainingCount < 0) Debug.Log("카운터가 0 이하로 내려갈 일이 뭐가 있을까");
-            remainingCount = value;
+            this.remainingCount = value;
         }
     }
 
@@ -31,27 +31,23 @@ public class Counter : MonoBehaviour
 
     void Start()
     {
-        SetRemainingCountText();
-        SetYourCountText();
-
+        UpdateRemainingCountText();
+        UpdateYourCountText();
     }
 
     void Update()
     {
-        //Debug.Log("rc: "+ RemaingCount);
-        //Debug.Log("yc: "+ YourCount);
 
     }
 
-    public void SetRemainingCountText()
+    public void UpdateRemainingCountText()
     {
         remainingCountText.text = "Count : " + remainingCount;
- 
     }
 
-    public void SetYourCountText()
+    public void UpdateYourCountText()
     {
-        yourCountText.text = "Your Count ; " + yourCount;
+        yourCountText.text = "Your Count : " + YourCount;
     }
 
 
