@@ -53,11 +53,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Exit.cs" />
-     <Compile Include="Assets\Scripts\GoGame.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
-     <Compile Include="Assets\Scripts\ReturnHome.cs" />
-     <Compile Include="Assets\Scripts\SplashScript.cs" />
+     <Compile Include="Assets\Scripts\ScriptLab\Exit.cs" />
+     <Compile Include="Assets\Scripts\ScriptLab\GoGame.cs" />
+     <Compile Include="Assets\Scripts\ScriptLab\ReturnHome.cs" />
+     <Compile Include="Assets\Scripts\ScriptLab\SplashScript.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
