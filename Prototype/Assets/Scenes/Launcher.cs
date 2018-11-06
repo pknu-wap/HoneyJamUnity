@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 namespace Com.MyCompany.MyGame
 {
@@ -28,12 +29,12 @@ namespace Com.MyCompany.MyGame
         }
         #endregion
 
-        #region Public Methods
+        #region Public Method 버튼들
         public void Connect()
         {
             if (PhotonNetwork.IsConnected)
             {
-                PhotonNetwork.JoinRandomRoom();
+                //PhotonNetwork.JoinRandomRoom();
             }
             else
             {
@@ -41,14 +42,30 @@ namespace Com.MyCompany.MyGame
                 PhotonNetwork.ConnectUsingSettings();
             }
         }
+        public void Disconnect()
+        {
+            PhotonNetwork.Disconnect();
+        }
+
+
+        public void CreateRoom()
+        {
+            PhotonNetwork.CreateRoom("chicken");
+            Debug.Log("Chicken 방 개설");
+        }
+        public void JoinRoom()
+        {
+            PhotonNetwork.JoinRoom("chicken");
+            Debug.Log("Chicken 방 입장");
+        }
         #endregion
 
         #region MonoBehaviourPunCallbacks Callbacks
 
         public override void OnConnectedToMaster()
         {
-            PhotonNetwork.JoinRandomRoom();
-            Debug.Log("PUN Basics Tutorial/Launcher: OnConnectedToMaster() was called by PUN");
+            //PhotonNetwork.JoinRandomRoom();
+            Debug.Log("OnConnectedToMaster 실행 중 " );
         }
         public override void OnDisconnected(DisconnectCause cause)
         {
@@ -66,8 +83,18 @@ namespace Com.MyCompany.MyGame
 
         public override void OnJoinedRoom()
         {
+            SceneManager.LoadScene("BeautifulScene");
             Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
         }
 
+        private void OnGUI()
+        {
+            //GUI.skin.label.fontSize = 15;
+            GUILayout.Label(PhotonNetwork.NetworkClientState.ToString());
+
+            if (GUILayout.Button("Button Name"))
+                Debug.Log("chicken");
+
+        }
     }
 }

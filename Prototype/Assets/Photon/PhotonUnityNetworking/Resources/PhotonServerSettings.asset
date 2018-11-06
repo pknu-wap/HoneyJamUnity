@@ -31,4 +31,6 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - _CountSend
+  - Attack_
   DisableAutoOpenWizard: 1
