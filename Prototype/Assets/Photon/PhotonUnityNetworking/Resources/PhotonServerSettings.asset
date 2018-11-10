@@ -33,4 +33,5 @@ MonoBehaviour:
   - RespawnSpaceship
   - _CountSend
   - Attack_
+  - _CountUpdate
   DisableAutoOpenWizard: 1

@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 namespace Com.MyCompany.MyGame
 {
 
-
+   
     public class Launcher : MonoBehaviourPunCallbacks
     {
+        public RPCs RPCs;
         #region Private Serializable Fields
         [SerializeField]
         private byte maxPlayersPerRoom = 4;
@@ -83,7 +84,7 @@ namespace Com.MyCompany.MyGame
 
         public override void OnJoinedRoom()
         {
-            SceneManager.LoadScene("BeautifulScene");
+            SceneManager.LoadScene("GamePlay"); 
             Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
         }
 

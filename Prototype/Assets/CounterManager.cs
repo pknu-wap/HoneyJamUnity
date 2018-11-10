@@ -21,10 +21,9 @@ public class CounterManager : MonoBehaviour {
 
     public void CountSub() {
         count -= 1;
-        UpdateCountText();
     }
 
-    private void UpdateCountText()
+    public void UpdateCountText()
     {
         CountText.text = $"Count :{count}";//포맷팅 달러
     }
