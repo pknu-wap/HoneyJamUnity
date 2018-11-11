@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: 0d1c3a834173da041a22b95313d13cc5
+  productGUID: 47eab42cad04ebc479435ed44c9dff15
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Prototype
+  productName: ShootCat
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -661,8 +661,8 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: ba2e45bc-a590-4939-a266-6e25de20f114
-  projectName: Prototype
+  cloudProjectId: 953f4ce7-47e3-4fe4-85e2-c9c437848102
+  projectName: ShootCat
   organizationId: honeyjamwap
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
