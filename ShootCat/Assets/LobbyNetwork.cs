@@ -22,6 +22,7 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     #region MonoBehaviour CallBacks
     void Awake()
     {
+        Screen.SetResolution(1080/5, 1920/5, false);
         PhotonNetwork.AutomaticallySyncScene = true;
     }
     void Start()

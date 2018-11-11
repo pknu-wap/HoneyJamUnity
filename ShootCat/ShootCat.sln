@@ -68,7 +68,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {74F60AD4-66DF-435F-A672-A6CC86D3428F}
+		SolutionGuid = {2AED5E75-5BBF-4128-B62D-975A058F5EEB}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
