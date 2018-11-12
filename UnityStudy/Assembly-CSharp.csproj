@@ -60,6 +60,8 @@
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
+     <Compile Include="Assets\RoomBtnObject.cs" />
+     <Compile Include="Assets\Scripts\CreateRoom.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\ScriptLab\ScriptLab\Exit.cs" />
      <Compile Include="Assets\Scripts\ScriptLab\ScriptLab\GoGame.cs" />
