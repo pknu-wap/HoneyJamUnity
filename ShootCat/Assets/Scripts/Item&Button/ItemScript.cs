@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Photon.Pun;
+using Photon.Realtime;
+
 public class ItemScript : MonoBehaviour
 {
     public Button pushBtn;
@@ -22,8 +25,13 @@ public class ItemScript : MonoBehaviour
 
     }
     #endregion
+
+
+
+
+
     [Range(0.0f, 5.0f)]
-    public float iceTime;
+    public float iceTime;//얼릴 시간
     public void ActiveIce()
     {
         pushBtnEventTrigger.enabled = false;
@@ -39,11 +47,16 @@ public class ItemScript : MonoBehaviour
         pushBtnEventTrigger.enabled = true;
     }
 
-    IEnumerator WaitTime(float second)//이 코루틴을 쓰면 second초 만큼 잠시 동작을 멈춥니다.
-    {
-        yield return new WaitForSeconds(second); ButtonMethods.BtnImageChange(pushBtn, catPawNormal);
       
-    }
+    #region PunRpc//네트워크 파트라 안봐도 되요 여긴
+    [PunRPC]
+    public void _NetworkIce()
+    {
 
+        Debug.Log(this.GetComponent<PhotonView>().ViewID);
+        ActiveIce();
+    }
+    #endregion
+   
 }
 
