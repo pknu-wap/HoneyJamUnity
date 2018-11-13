@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class ItemScript : MonoBehaviour
 {
     public Button pushBtn;
-    public ButtonManager ButtonManager;
+    public ButtonMethods ButtonMethods;
     public EventTrigger pushBtnEventTrigger;
     public Image catPawIce;
     public Image catPawNormal;
@@ -26,20 +26,23 @@ public class ItemScript : MonoBehaviour
     public float iceTime;
     public void ActiveIce()
     {
-        ButtonManager.BtnInteractable(pushBtn,"off");
-        ButtonManager.BtnImageChange(pushBtn, catPawIce);
-        //pushBtnEventTrigger.
-        //Debug.Log(Time.time);
-        StartCoroutine(WaitTime(iceTime));
+        pushBtnEventTrigger.enabled = false;
+        ButtonMethods.BtnImageChange(pushBtn, catPawIce);
         Debug.Log(Time.time);
+        Invoke("ButtonNormal", iceTime);
        
     }
-
+    public void ButtonNormal()
+    {
+        ButtonMethods.BtnImageChange(pushBtn, catPawNormal);
+        Debug.Log(Time.time);
+        pushBtnEventTrigger.enabled = true;
+    }
 
     IEnumerator WaitTime(float second)//이 코루틴을 쓰면 second초 만큼 잠시 동작을 멈춥니다.
     {
-        yield return new WaitForSeconds(second); ButtonManager.BtnImageChange(pushBtn, catPawNormal);
-        ButtonManager.BtnInteractable(pushBtn, "on");
+        yield return new WaitForSeconds(second); ButtonMethods.BtnImageChange(pushBtn, catPawNormal);
+      
     }
 
 }
