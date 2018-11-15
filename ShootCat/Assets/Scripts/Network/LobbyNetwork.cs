@@ -12,10 +12,11 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     public TMPro.TextMeshProUGUI UserIdInputField; // set in inspector
     public GameObject InputYourId;
     public CreateRoomScript createRoomScript;
+    public int maxPlayersPerRoom = 4;
 
     #region Private Serializable Fields
     [SerializeField]
-    private byte maxPlayersPerRoom = 4;
+    //private byte maxPlayersPerRoom = 4; // 받아와야함 토글에서
     #endregion
 
     #region Private Fields
@@ -75,17 +76,16 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     {
         Debug.Log("만들어진 방이 없으니깐 생성 조진다");
       
-        //SceneManager.LoadScene("GamePlay");
+        
     }
 
     public override void OnJoinedRoom()
     {
         Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
     }
-    public void CreateRoom(CreateRoom.get) {
-
-
-        PhotonNetwork.CreateRoom("Checken", new RoomOptions { MaxPlayers = maxPlayersPerRoom });
-
+    public void CreateRoom() {
+        createRoomScript.MaxPlayersPerRoom = 0;//나중에 지워줘야지 뭐..
+        PhotonNetwork.CreateRoom(createRoomScript.GetRoomName(), new RoomOptions { MaxPlayers = createRoomScript.MaxPlayersPerRoom});
+        SceneManager.LoadScene("GamePlay");
     }
 }
