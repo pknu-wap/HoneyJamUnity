@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LobbyNetwork : MonoBehaviourPunCallbacks
 {
+    public string UserId { get; set; }
+    public TMPro.TextMeshProUGUI UserIdInputField; // set in inspector
+    public GameObject InputYourId;
+    public CreateRoomScript createRoomScript;
 
     #region Private Serializable Fields
     [SerializeField]
@@ -27,6 +31,9 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     }
     void Start()
     {
+        if (UserId == null)
+            InputYourId.SetActive(true);
+
 
     }
     #endregion
@@ -34,16 +41,20 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     #region Button Methods
     public void Connect()
     {
-        if (PhotonNetwork.IsConnected)
-        {
-            PhotonNetwork.JoinRoom("Checken");
-            SceneManager.LoadScene("GamePlay");
-        }
-        else
+        //if (PhotonNetwork.IsConnected)
+        //{
+        //    PhotonNetwork.JoinRoom("Checken");
+        //    SceneManager.LoadScene("GamePlay");
+        //}
+        //else
+
         {
             PhotonNetwork.GameVersion = gameVersion;
             PhotonNetwork.ConnectUsingSettings();
         }
+
+        UserId = UserIdInputField.text;//ID setting
+        InputYourId.SetActive(false);
     }
     #endregion
 
@@ -63,12 +74,18 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         Debug.Log("만들어진 방이 없으니깐 생성 조진다");
-        PhotonNetwork.CreateRoom("Checken", new RoomOptions { MaxPlayers = maxPlayersPerRoom });
-        SceneManager.LoadScene("GamePlay");
+      
+        //SceneManager.LoadScene("GamePlay");
     }
 
     public override void OnJoinedRoom()
     {
         Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+    }
+    public void CreateRoom(CreateRoom.get) {
+
+
+        PhotonNetwork.CreateRoom("Checken", new RoomOptions { MaxPlayers = maxPlayersPerRoom });
+
     }
 }
