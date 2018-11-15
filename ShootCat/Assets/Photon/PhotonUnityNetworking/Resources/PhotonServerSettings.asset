@@ -29,4 +29,5 @@ MonoBehaviour:
   RunInBackground: 1
   RpcList:
   - _UpdateCount
+  - _NetworkIce
   DisableAutoOpenWizard: 1
