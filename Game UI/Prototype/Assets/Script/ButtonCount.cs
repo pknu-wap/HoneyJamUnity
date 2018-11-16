@@ -7,7 +7,7 @@ public class ButtonCount : MonoBehaviour {
 
 
     public Text counterText;
-    private int count;
+    private int count = 12;
 
 
 	// Use this for initialization
@@ -19,7 +19,7 @@ public class ButtonCount : MonoBehaviour {
 	void Update () {
 
         string count1 = count.ToString();
-        counterText.text = "내 카운트 횟수는" + count1 + "입니다";
+        counterText.text = "내 카운트 횟수는" + count1;
 
 
 
