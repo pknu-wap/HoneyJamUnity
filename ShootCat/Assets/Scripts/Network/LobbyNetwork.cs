@@ -63,8 +63,7 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        PhotonNetwork.JoinRandomRoom();
-        Debug.Log("PUN Basics Tutorial/Launcher: OnConnectedToMaster() was called by PUN");
+        Debug.Log("connect");
     }
     public override void OnDisconnected(DisconnectCause cause)
     {
@@ -74,18 +73,18 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        Debug.Log("만들어진 방이 없으니깐 생성 조진다");
+        Debug.Log("OnJoinRandomFailed다");
       
         
     }
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+        Debug.Log("room enter" );
     }
     public void CreateRoom() {
-        createRoomScript.MaxPlayersPerRoom = 0;//나중에 지워줘야지 뭐..
-        PhotonNetwork.CreateRoom(createRoomScript.GetRoomName(), new RoomOptions { MaxPlayers = createRoomScript.MaxPlayersPerRoom});
+        createRoomScript.MaxPlayersPerRoom = 4;//나중에 지워줘야지 뭐..
+        PhotonNetwork.CreateRoom("test", new RoomOptions { MaxPlayers = createRoomScript.MaxPlayersPerRoom});
         SceneManager.LoadScene("GamePlay");
     }
 }

@@ -1,17 +1,8 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="RoomListView.cs" company="Exit Games GmbH">
-//   Part of: Pun Cockpit
-// </copyright>
-// <author>developer@exitgames.com</author>
-// --------------------------------------------------------------------------------------------------------------------
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-
 using Photon.Realtime;
 using Photon.Pun;
 
@@ -24,9 +15,9 @@ public class RoomListView : MonoBehaviourPunCallbacks
 
     public RoomListCell CellPrototype;
 
-    public Text UpdateStatusText;
+    //public Text UpdateStatusText;
 
-    public Text ContentFeedback;
+    //public Text ContentFeedback;
 
     public InputField LobbyNameInputField;
     public InputField SqlQueryInputField;
@@ -42,8 +33,8 @@ public class RoomListView : MonoBehaviourPunCallbacks
 
         ResetList();
         CellPrototype.gameObject.SetActive(false);
-        UpdateStatusText.text = string.Empty;
-        ContentFeedback.text = string.Empty;
+        //UpdateStatusText.text = string.Empty;
+        //ContentFeedback.text = string.Empty;
     }
 
 
@@ -55,11 +46,11 @@ public class RoomListView : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        UpdateStatusText.text = "Updated";
+        //UpdateStatusText.text = "Updated";
 
         if (roomList.Count == 0 && !PhotonNetwork.InLobby)
         {
-            ContentFeedback.text = "No Room found in lobby " + LobbyNameInputField.text + " Matching: " + SqlQueryInputField.text;
+            //ContentFeedback.text = "No Room found in lobby " + LobbyNameInputField.text + " Matching: " + SqlQueryInputField.text;
         }
 
         foreach (RoomInfo entry in roomList)
@@ -101,13 +92,13 @@ public class RoomListView : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(1f);
 
-        UpdateStatusText.text = string.Empty;
+        //UpdateStatusText.text = string.Empty;
     }
 
     public void OnJoinedLobbyCallBack()
     {
         _firstUpdate = true;
-        ContentFeedback.text = string.Empty;
+        //ContentFeedback.text = string.Empty;
     }
 
     public void GetRoomList()
@@ -115,28 +106,32 @@ public class RoomListView : MonoBehaviourPunCallbacks
         ResetList();
 
 
-        TypedLobby sqlLobby = new TypedLobby(LobbyNameInputField.text, LobbyType.SqlLobby);
+        //TypedLobby sqlLobby = new TypedLobby(LobbyNameInputField.text, LobbyType.SqlLobby);
+        TypedLobby sqlLobby = new TypedLobby("test", LobbyType.SqlLobby);
 
         Debug.Log("Cockpit: GetCustomRoomList() matchmaking against '" + LobbyNameInputField.text + "' SqlLobby using query :  " + SqlQueryInputField.text);
 
         PhotonNetwork.GetCustomRoomList(sqlLobby, SqlQueryInputField.text); //"C0 = 'Hello'"
 
-        ContentFeedback.text = "looking for Rooms in Lobby '" + LobbyNameInputField.text + "' Matching: '" + SqlQueryInputField.text;
+        //ContentFeedback.text = "looking for Rooms in Lobby '" + LobbyNameInputField.text + "' Matching: '" + SqlQueryInputField.text;
     }
 
 
     public void ResetList()
     {
         _firstUpdate = true;
-
+        Debug.Log("ResetList 실행중");
+        Debug.Log(roomCellList);
         foreach (KeyValuePair<string, RoomListCell> entry in roomCellList)
         {
 
+
+        Debug.Log("ResetList foreach 실행중");
             if (entry.Value != null)
             {
                 Destroy(entry.Value.gameObject);
             }
-
+            Debug.Log(entry.Value);
         }
         roomCellList = new Dictionary<string, RoomListCell>();
     }
