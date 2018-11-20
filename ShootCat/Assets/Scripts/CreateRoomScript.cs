@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CreateRoomScript : MonoBehaviour
@@ -29,5 +30,9 @@ public class CreateRoomScript : MonoBehaviour
 
         return roomName;
     }
-   
+    void GotoGame() {
+
+        SceneManager.LoadScene("GamePlay");
+
+    }
 }
