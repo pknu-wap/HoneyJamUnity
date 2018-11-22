@@ -63,7 +63,7 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        Debug.Log("connect");
+        Debug.Log("OnConnectedToMaster connect");
     }
     public override void OnDisconnected(DisconnectCause cause)
     {

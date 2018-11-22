@@ -107,9 +107,9 @@ public class RoomListView : MonoBehaviourPunCallbacks
 
 
         //TypedLobby sqlLobby = new TypedLobby(LobbyNameInputField.text, LobbyType.SqlLobby);
-        TypedLobby sqlLobby = new TypedLobby("test", LobbyType.SqlLobby);
+        TypedLobby sqlLobby = new TypedLobby(null, LobbyType.Default);
 
-        Debug.Log("Cockpit: GetCustomRoomList() matchmaking against '" + LobbyNameInputField.text + "' SqlLobby using query :  " + SqlQueryInputField.text);
+        //Debug.Log("Cockpit: GetCustomRoomList() matchmaking against '" + LobbyNameInputField.text + "' SqlLobby using query :  " + SqlQueryInputField.text);
 
         PhotonNetwork.GetCustomRoomList(sqlLobby, SqlQueryInputField.text); //"C0 = 'Hello'"
 
