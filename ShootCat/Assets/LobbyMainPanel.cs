@@ -45,14 +45,18 @@ namespace Photon.Pun.Demo.Asteroid
 
         public void Awake()
         {
+          
             PhotonNetwork.AutomaticallySyncScene = true;
 
             cachedRoomList = new Dictionary<string, RoomInfo>();
             roomListEntries = new Dictionary<string, GameObject>();
 
-            PlayerNameInput.text = "Player " + Random.Range(1000, 10000);
+            //PlayerNameInput.text = "Player " + Random.Range(1000, 10000);
         }
-
+        public void Update()
+        {
+            Debug.Log(PhotonNetwork.NetworkClientState);
+        }
         #endregion
 
         #region PUN CALLBACKS
@@ -64,7 +68,12 @@ namespace Photon.Pun.Demo.Asteroid
 
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
-            Debug.Log("로비 접속 성공");
+
+            base.OnRoomListUpdate(roomList);
+
+
+            Debug.Log("쫌 되라공리ㅏㄴ어리ㅏㄴㅇ러ㅏㅣ");
+        print(roomList.Count + " Rooms");
             ClearRoomListView();
 
             UpdateCachedRoomList(roomList);
@@ -130,7 +139,7 @@ namespace Photon.Pun.Demo.Asteroid
             //    };
             //PhotonNetwork.LocalPlayer.SetCustomProperties(props);
         }
-
+        
         public override void OnLeftRoom()
         {
             //SetActivePanel(SelectionPanel.name);
@@ -215,12 +224,11 @@ namespace Photon.Pun.Demo.Asteroid
             PhotonNetwork.CreateRoom(roomName, options, null);
         }
 
-        //public void OnJoinRandomRoomButtonClicked()
-        //{
-        //    SetActivePanel(JoinRandomRoomPanel.name);
+        public void OnJoinRandomRoomButtonClicked()
+        {
 
-        //    PhotonNetwork.JoinRandomRoom();
-        //}
+            PhotonNetwork.JoinRandomRoom();
+        }
 
         public void OnLeaveGameButtonClicked()
         {
@@ -229,29 +237,30 @@ namespace Photon.Pun.Demo.Asteroid
 
         public void OnLoginButtonClicked()
         {
-            string playerName = PlayerNameInput.text;
-
-            if (!playerName.Equals(""))
-            {
-                PhotonNetwork.LocalPlayer.NickName = playerName;
-                PhotonNetwork.ConnectUsingSettings();
-            }
-            else
-            {
-                Debug.LogError("Player Name is invalid.");
-            }
+            PhotonNetwork.ConnectUsingSettings();
+            //string playerName = PlayerNameInput.text;
+            //if (!playerName.Equals("")||playerName!=null)
+            //{
+            //    PhotonNetwork.LocalPlayer.NickName = playerName;
+              
+            //}
+            //else
+            //{
+            //    Debug.LogError("Player Name is invalid.");
+            //}
         }
 
         public void OnRoomListButtonClicked()
         {
+          
             if (!PhotonNetwork.InLobby)
             {
-               
                 PhotonNetwork.JoinLobby();
-                Debug.Log("sdfsdfsdf");
+                UpdateRoomListView();
+                Debug.Log("OnRoomListButtonClicked");
             }
             //SetActivePanel(RoomListPanel.name)/*;*
-
+            else Debug.Log("InLobby emi");
         }
 
         public void OnStartGameButtonClicked()
@@ -345,8 +354,10 @@ namespace Photon.Pun.Demo.Asteroid
 
         private void UpdateRoomListView()
         {
+            Debug.Log("UpdateRoomListView");
             foreach (RoomInfo info in cachedRoomList.Values)
             {
+                Debug.Log("RooomInfo :"+info);
                 GameObject entry = Instantiate(RoomListEntryPrefab);
                 entry.transform.SetParent(RoomListContent.transform);
                 entry.transform.localScale = Vector3.one;

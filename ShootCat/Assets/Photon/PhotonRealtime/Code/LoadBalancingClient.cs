@@ -1087,6 +1087,7 @@ namespace Photon.Realtime
                 this.State = ClientState.JoiningLobby;
             }
 
+            Debug.Log("Lobby Join SuccecdS");
             return sent;
         }
 
@@ -1119,7 +1120,8 @@ namespace Photon.Realtime
         /// Note: There will be no callbacks if this method returned false.
         ///
         ///
-        /// This client's State is set to ClientState.Joining immediately, when the operation could
+        /// This clien
+        ///t's State is set to ClientState.Joining immediately, when the operation could
         /// be called. In the background, the client will switch servers and call various related operations.
         ///
         /// When you're in the room, this client's State will become ClientState.Joined.

@@ -77,13 +77,17 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
       
         
     }
-
+    public override void OnJoinedLobby()
+    {
+        Debug.Log("lobby enter");
+    }
     public override void OnJoinedRoom()
     {
         Debug.Log("room enter" );
     }
     public void CreateRoom() {
         createRoomScript.MaxPlayersPerRoom = 4;//나중에 지워줘야지 뭐..
+        Debug.Log("Room Create");
         PhotonNetwork.CreateRoom("test", new RoomOptions { MaxPlayers = createRoomScript.MaxPlayersPerRoom});
         SceneManager.LoadScene("GamePlay");
     }
