@@ -3,9 +3,8 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-namespace Photon.Pun.Demo.Asteroid
-{
     public class LobbyMainPanel : MonoBehaviourPunCallbacks
     {
         [Header("Login Panel")]
@@ -19,7 +18,7 @@ namespace Photon.Pun.Demo.Asteroid
         [Header("Create Room Panel")]
         public GameObject CreateRoomPanel;
 
-        public InputField RoomNameInputField;
+       public TMPro.TextMeshProUGUI RoomNameInputField;
         public InputField MaxPlayersInputField;
 
         [Header("Join Random Room Panel")]
@@ -55,7 +54,7 @@ namespace Photon.Pun.Demo.Asteroid
         }
         public void Update()
         {
-            Debug.Log(PhotonNetwork.NetworkClientState);
+           
         }
         #endregion
 
@@ -65,11 +64,11 @@ namespace Photon.Pun.Demo.Asteroid
         //{
         //    this.SetActivePanel(SelectionPanel.name);
         //}
-
+       
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
 
-            base.OnRoomListUpdate(roomList);
+            //base.OnRoomListUpdate(roomList);
 
 
             Debug.Log("쫌 되라공리ㅏㄴ어리ㅏㄴㅇ러ㅏㅣ");
@@ -105,7 +104,10 @@ namespace Photon.Pun.Demo.Asteroid
 
             PhotonNetwork.CreateRoom(roomName, options, null);
         }
-
+        public override void OnJoinedLobby()
+    {
+        Debug.Log("lobby enter");
+    }
         public override void OnJoinedRoom()
         {
             SetActivePanel(InsideRoomPanel.name);
@@ -215,13 +217,14 @@ namespace Photon.Pun.Demo.Asteroid
             string roomName = RoomNameInputField.text;
             roomName = (roomName.Equals(string.Empty)) ? "Room " + Random.Range(1000, 10000) : roomName;
 
-            byte maxPlayers;
-            byte.TryParse(MaxPlayersInputField.text, out maxPlayers);
-            maxPlayers = (byte)Mathf.Clamp(maxPlayers, 2, 8);
+            //byte maxPlayers;
+            //byte.TryParse(MaxPlayersInputField.text, out maxPlayers);
+            //maxPlayers = (byte)Mathf.Clamp(maxPlayers, 2, 8);
 
-            RoomOptions options = new RoomOptions { MaxPlayers = maxPlayers };
+            RoomOptions options = new RoomOptions { MaxPlayers = 4 };
 
             PhotonNetwork.CreateRoom(roomName, options, null);
+            SceneManager.LoadScene("GamePlay");
         }
 
         public void OnJoinRandomRoomButtonClicked()
@@ -242,7 +245,7 @@ namespace Photon.Pun.Demo.Asteroid
             //if (!playerName.Equals("")||playerName!=null)
             //{
             //    PhotonNetwork.LocalPlayer.NickName = playerName;
-              
+
             //}
             //else
             //{
@@ -256,7 +259,6 @@ namespace Photon.Pun.Demo.Asteroid
             if (!PhotonNetwork.InLobby)
             {
                 PhotonNetwork.JoinLobby();
-                UpdateRoomListView();
                 Debug.Log("OnRoomListButtonClicked");
             }
             //SetActivePanel(RoomListPanel.name)/*;*
@@ -361,10 +363,9 @@ namespace Photon.Pun.Demo.Asteroid
                 GameObject entry = Instantiate(RoomListEntryPrefab);
                 entry.transform.SetParent(RoomListContent.transform);
                 entry.transform.localScale = Vector3.one;
-                entry.GetComponent<RoomListEntry>().Initialize(info.Name, (byte)info.PlayerCount, info.MaxPlayers);
+                //entry.GetComponent<RoomListEntry>().Initialize(info.Name, (byte)info.PlayerCount, info.MaxPlayers);
 
                 roomListEntries.Add(info.Name, entry);
             }
         }
     }
-}

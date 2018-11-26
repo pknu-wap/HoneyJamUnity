@@ -154,7 +154,7 @@ a3c4f6168fdec1e9debee096e97ab787 Assembly-CSharp.dll:TMPro.Examples.TMP_TextEven
 34d219cdf8a72aef75c203b036a85318 Assembly-CSharp.dll:TMPro.Examples.Benchmark01
 f16835701e71dd5d6fb1fed4b7aff1d8 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 41324b3b3473d001501c3dcd9ebdbd92 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.OnClickInstantiate
-90b610cd5eec5e561071cf7a403fdfe9 Assembly-CSharp.dll:Photon.Pun.Demo.Asteroid.LobbyMainPanel
+9e5146915b4268e7c5299b6fc3966f88 Assembly-CSharp.dll:Photon.Pun.Demo.Asteroid.LobbyMainPanel
 cee104689b94fe95e9768f045e7bea29 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.StatesGui
 bb3f8ae71cc0b231bf331b52aca45ebd Assembly-CSharp.dll:TMPro.Examples.CameraController
 ae74fc196a06f796692fe7705044f8ec PhotonUnityNetworking.dll:Photon.Pun.PhotonRigidbodyView
@@ -281,3 +281,13 @@ c0d092d55c9c277fa66b2061c0ab19ec Assembly-CSharp.dll:FlyingWormConsole3.ConsoleP
 0f8e813736f130fc766e9b84b62e3bff Assembly-CSharp.dll:.ItemScript
 486a060cfa254a30ff0160971a9a8a9f Sirenix.Serialization.Config.dll:Sirenix.Serialization.GlobalSerializationConfig
 3b87d3cd1748568e8c33cb73b8d32c6d PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.CountdownTimer
+b609004660c68459b8e9a719c4b1bea2 Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.AsteroidsGameManager
+cc897ffaccf7411ad5f3b9b409024407 Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.PlayerOverviewPanel
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.Bullet
+90b610cd5eec5e561071cf7a403fdfe9 Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.LobbyMainPanel
+5af2a5c267baa599234e521cb2cfd5ee Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.RoomListEntry
+6d7e6060c0b90a7079ef42d6787c8e5b Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.Asteroid
+f4b8676fdc4f005575ebd2e611f0a689 PhotonUnityNetworking.dll:Photon.Pun.PhotonTransformViewClassic
+35c2ac5d6e620bb7d8e00f6f671b8fc3 Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.PlayerListEntry
+7664ca902df0a1dee452d7c6be999ac1 Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.Spaceship
+424f3aad821677fab5a6a08fbbf773db Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.LobbyTopPanel
