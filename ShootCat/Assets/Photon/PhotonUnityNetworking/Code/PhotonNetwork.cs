@@ -64,7 +64,7 @@ namespace Photon.Pun
     public static partial class PhotonNetwork
     {
         /// <summary>Version number of PUN. Used in the AppVersion, which separates your playerbase in matchmaking.</summary>
-        public const string PunVersion = "2.4";
+        public const string PunVersion = "2.5";
 
         /// <summary>Version number of your game. Setting this updates the AppVersion, which separates your playerbase in matchmaking.</summary>
         /// <remarks>
@@ -1732,6 +1732,9 @@ namespace Photon.Pun
         /// Use Custom Properties and RaiseEvent with event caching instead.
         ///
         /// Common use case: Press the Lock Button on a iOS device and you get disconnected immediately.
+        /// 
+        /// Rejoining room will not send any player properties. Instead client will receive up-to-date ones from server.
+        /// If you want to set new player properties, do it once rejoined.
         /// </remarks>
         public static bool RejoinRoom(string roomName)
         {
@@ -1769,6 +1772,9 @@ namespace Photon.Pun
         /// If ReconnectAndRejoin returns false, you can still attempt a Reconnect and Rejoin.
         ///
         /// Similar to PhotonNetwork.RejoinRoom, this requires you to use unique IDs per player (the UserID).
+        /// 
+        /// Rejoining room will not send any player properties. Instead client will receive up-to-date ones from server.
+        /// If you want to set new player properties, do it once rejoined.
         /// </remarks>
         /// <returns>False, if there is no known room or game server to return to. Then, this client does not attempt the ReconnectAndRejoin.</returns>
         public static bool ReconnectAndRejoin()
@@ -1878,6 +1884,7 @@ namespace Photon.Pun
         /// </remarks>
         public static bool JoinLobby()
         {
+            Debug.Log("photon.joinlobby");
             return JoinLobby(null);
         }
 
@@ -1917,10 +1924,12 @@ namespace Photon.Pun
         public static bool JoinLobby(TypedLobby typedLobby)
         {
             if (PhotonNetwork.IsConnected && PhotonNetwork.Server == ServerConnection.MasterServer)
+                
             {
+                Debug.Log("JoinLobby success");
                 return NetworkingClient.OpJoinLobby(typedLobby);
             }
-
+            Debug.Log("JoinLobby failed");
             return false;
         }
 
@@ -2212,7 +2221,7 @@ namespace Photon.Pun
                 int newSubId = lastUsedViewSubId;
                 int newViewId;
                 int ownerIdOffset = ownerId * MAX_VIEW_IDS;
-                for (int i = 1; i < MAX_VIEW_IDS; i++)
+                for (int i = 1; i <= MAX_VIEW_IDS; i++)
                 {
                     newSubId = (newSubId + 1) % MAX_VIEW_IDS;
                     if (newSubId == 0)

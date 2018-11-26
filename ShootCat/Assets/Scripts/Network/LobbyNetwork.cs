@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LobbyNetwork : MonoBehaviourPunCallbacks
 {
+    public string UserId { get; set; }
+    public TMPro.TextMeshProUGUI UserIdInputField; // set in inspector
+    public GameObject InputYourId;
+    public CreateRoomScript createRoomScript;
+    public int maxPlayersPerRoom = 4;
 
     #region Private Serializable Fields
     [SerializeField]
-    private byte maxPlayersPerRoom = 4;
+    //private byte maxPlayersPerRoom = 4; // 받아와야함 토글에서
     #endregion
 
     #region Private Fields
@@ -27,6 +32,9 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     }
     void Start()
     {
+        if (UserId == null)
+            InputYourId.SetActive(true);
+
 
     }
     #endregion
@@ -34,16 +42,20 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     #region Button Methods
     public void Connect()
     {
-        if (PhotonNetwork.IsConnected)
-        {
-            PhotonNetwork.JoinRoom("Checken");
-            SceneManager.LoadScene("GamePlay");
-        }
-        else
+        //if (PhotonNetwork.IsConnected)
+        //{
+        //    PhotonNetwork.JoinRoom("Checken");
+        //    SceneManager.LoadScene("GamePlay");
+        //}
+        //else
+
         {
             PhotonNetwork.GameVersion = gameVersion;
             PhotonNetwork.ConnectUsingSettings();
         }
+
+        UserId = UserIdInputField.text;//ID setting
+        InputYourId.SetActive(false);
     }
     #endregion
 
@@ -51,8 +63,7 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        PhotonNetwork.JoinRandomRoom();
-        Debug.Log("PUN Basics Tutorial/Launcher: OnConnectedToMaster() was called by PUN");
+        Debug.Log("OnConnectedToMaster connect");
     }
     public override void OnDisconnected(DisconnectCause cause)
     {
@@ -62,13 +73,19 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        Debug.Log("만들어진 방이 없으니깐 생성 조진다");
-        PhotonNetwork.CreateRoom("Checken", new RoomOptions { MaxPlayers = maxPlayersPerRoom });
-        SceneManager.LoadScene("GamePlay");
+        Debug.Log("OnJoinRandomFailed다");
+      
+        
     }
-
+    
     public override void OnJoinedRoom()
     {
-        Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+        Debug.Log("room enter" );
+    }
+    public void CreateRoom() {
+        createRoomScript.MaxPlayersPerRoom = 4;//나중에 지워줘야지 뭐..
+        Debug.Log("Room Create");
+        PhotonNetwork.CreateRoom("test", new RoomOptions { MaxPlayers = createRoomScript.MaxPlayersPerRoom});
+       
     }
 }

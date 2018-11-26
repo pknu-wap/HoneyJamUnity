@@ -57,7 +57,7 @@ namespace Photon.Pun.UtilityScripts
         {
             if (Text == null)
             {
-                //Debug.LogError("Reference to 'Text' is not set. Please set a valid reference.", this);
+                Debug.LogError("Reference to 'Text' is not set. Please set a valid reference.", this);
                 return;
             }
         }

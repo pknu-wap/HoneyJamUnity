@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonChat", "PhotonChat.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonUnityNetworking", "PhotonUnityNetworking.csproj", "{0AB115B1-6793-F4F7-5AAB-68A5F685388F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonRealtime", "PhotonRealtime.csproj", "{72646957-DF9C-06A2-872C-7468F54BEBDB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{8BB25FA3-4222-2DA5-9B73-083786FE30B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonRealtime", "PhotonRealtime.csproj", "{72646957-DF9C-06A2-872C-7468F54BEBDB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{4495A961-C3D3-CB23-BE18-E97BD3CD6DA4}"
 EndProject
@@ -41,14 +41,14 @@ Global
 		{0AB115B1-6793-F4F7-5AAB-68A5F685388F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AB115B1-6793-F4F7-5AAB-68A5F685388F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AB115B1-6793-F4F7-5AAB-68A5F685388F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{72646957-DF9C-06A2-872C-7468F54BEBDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72646957-DF9C-06A2-872C-7468F54BEBDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72646957-DF9C-06A2-872C-7468F54BEBDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72646957-DF9C-06A2-872C-7468F54BEBDB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8BB25FA3-4222-2DA5-9B73-083786FE30B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8BB25FA3-4222-2DA5-9B73-083786FE30B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BB25FA3-4222-2DA5-9B73-083786FE30B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BB25FA3-4222-2DA5-9B73-083786FE30B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72646957-DF9C-06A2-872C-7468F54BEBDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72646957-DF9C-06A2-872C-7468F54BEBDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72646957-DF9C-06A2-872C-7468F54BEBDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72646957-DF9C-06A2-872C-7468F54BEBDB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4495A961-C3D3-CB23-BE18-E97BD3CD6DA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4495A961-C3D3-CB23-BE18-E97BD3CD6DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4495A961-C3D3-CB23-BE18-E97BD3CD6DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
