@@ -40,7 +40,7 @@ public class CounterMethods : MonoBehaviour {
         while (true)
         {if (ScorePanel.transform.position.y <= 0)
                 break;
-            ScorePanel.transform.position -= new Vector3(0, 1, 0);
+            ScorePanel.transform.position -= new Vector3(0, 0.001f, 0);
             ScorePanel.GetComponent<RectTransform>();
         }
     }
