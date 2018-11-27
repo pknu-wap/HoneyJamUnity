@@ -1,72 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using UnityEngine.EventSystems;
-
-
 
 public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-
-
-
     public static GameObject beingDragged;
-
-
-
-    // Use this for initialization
-
+    enum Target { none, player1, player2, player3 };
+    Target target = Target.none;
+    Vector3 startPos = new Vector3(-400, -100, 10);
+    #region Unity
     void Start()
     {
 
-
     }
-
-
-    // Update is called once per frame
-
     void Update()
     {
-
-        positionCheck();
-
+        //positionCheck();
     }
+    #endregion
 
-
-
+    #region DragEvent
     public void OnBeginDrag(PointerEventData eventData)
-
     {
-
         beingDragged = gameObject;
-
     }
-
-
-
     public void OnDrag(PointerEventData eventData)
-
     {
-
-
-
         transform.position = Input.mousePosition;
-
     }
-
-
-
     public void OnEndDrag(PointerEventData eventData)
-
     {
-
+        if (target == Target.none)
+            gameObject.transform.position = startPos;
+        else { Destroy(gameObject);
+            Debug.Log("Destroy!!!");
+        }
         beingDragged = null;
-
     }
-
-
-
+    #endregion
 
 
     void positionCheck()
@@ -148,5 +120,19 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     }
 
+    void OnTriggerEnter(Collider col)
+    {
+        Debug.Log("TriggerEnter");
+        if (col.tag == "Player1")
+            target = Target.player1;
+        if (col.tag == "Player2")
+            target = Target.player2;
+        if (col.tag == "Player3")
+            target = Target.player3;
+    }
+    void OnTriggerExit(Collider col)
+    {
+        target = Target.none;
+    }
 }
 

@@ -56,16 +56,24 @@ using UnityEngine.UI;
         {
            
         }
-        #endregion
+    #endregion
 
-        #region PUN CALLBACKS
+    #region PUN CALLBACKS
 
-        //public override void OnConnectedToMaster()
-        //{
-        //    this.SetActivePanel(SelectionPanel.name);
-        //}
-       
-        public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    //public override void OnConnectedToMaster()
+    //{
+    //    this.SetActivePanel(SelectionPanel.name);
+    //}
+
+
+    public override void OnLobbyStatisticsUpdate(List<TypedLobbyInfo> lobbyStatistics)
+    {
+        Debug.Log("U @");
+        base.OnLobbyStatisticsUpdate(lobbyStatistics);
+    }
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+
         {
 
             //base.OnRoomListUpdate(roomList);
@@ -106,6 +114,7 @@ using UnityEngine.UI;
         }
         public override void OnJoinedLobby()
     {
+        base.OnJoinedLobby();
         Debug.Log("lobby enter");
     }
         public override void OnJoinedRoom()
