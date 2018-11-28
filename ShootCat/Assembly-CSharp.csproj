@@ -78,7 +78,6 @@
      <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\SimpleChannel.cs" />
      <Compile Include="Assets\CountDownText.cs" />
      <Compile Include="Assets\DragHandler.cs" />
-     <Compile Include="Assets\LobbyMainPanel.cs" />
      <Compile Include="Assets\Photon\PhotonUnityNetworking\Demos\DemoAsteroids\Scripts\AsteroidsGame.cs" />
      <Compile Include="Assets\Photon\PhotonUnityNetworking\Demos\DemoAsteroids\Scripts\Game\Asteroid.cs" />
      <Compile Include="Assets\Photon\PhotonUnityNetworking\Demos\DemoAsteroids\Scripts\Game\AsteroidsGameManager.cs" />
@@ -89,7 +88,7 @@
      <Compile Include="Assets\Photon\PhotonUnityNetworking\Demos\DemoAsteroids\Scripts\Lobby\LobbyTopPanel.cs" />
      <Compile Include="Assets\Photon\PhotonUnityNetworking\Demos\DemoAsteroids\Scripts\Lobby\PlayerListEntry.cs" />
      <Compile Include="Assets\Photon\PhotonUnityNetworking\Demos\DemoAsteroids\Scripts\Lobby\RoomListEntry.cs" />
-     <Compile Include="Assets\RoomListEntry.cs" />
+     <Compile Include="Assets\PlayerListEntry.cs" />
      <Compile Include="Assets\Scripts\Count\Counter.cs" />
      <Compile Include="Assets\Scripts\Count\CounterMethods.cs" />
      <Compile Include="Assets\Scripts\CreateRoomScript.cs" />
@@ -98,9 +97,11 @@
      <Compile Include="Assets\Scripts\Item&amp;Button\ItemScript.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Network\GamePlayNetwork.cs" />
-     <Compile Include="Assets\Scripts\Network\LobbyNetwork.cs" />
-     <Compile Include="Assets\Scripts\Network\RoomListCell.cs" />
-     <Compile Include="Assets\Scripts\Network\RoomListView.cs" />
+     <Compile Include="Assets\Scripts\Network\LobbyMainPanel.cs" />
+     <Compile Include="Assets\Scripts\Network\PlayerListEntry.cs" />
+     <Compile Include="Assets\Scripts\Network\PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\Network\PlayerUI.cs" />
+     <Compile Include="Assets\Scripts\Network\RoomListEntry.cs" />
      <Compile Include="Assets\Scripts\ShowScore.cs" />
      <Compile Include="Assets\Scripts\Sound\audiomanager.cs" />
      <Compile Include="Assets\Scripts\StartCount.cs" />
