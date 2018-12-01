@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class LobbyMainPanel : MonoBehaviourPunCallbacks
 {
+    private readonly string connectionStatusMessage = "    Connection Status: ";
+    [Header("UI References")]
+    public Text ConnectionStatusText;
     [Header("Login Panel")]
     public GameObject LoginPanel;
 
@@ -58,7 +61,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     }
     public void Update()
     {
-
+        ConnectionStatusText.text = connectionStatusMessage + PhotonNetwork.NetworkClientState;
     }
     #endregion
 
@@ -66,6 +69,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
+        Debug.Log("온 커넥트 마스터");
         if (UserIdInputField.text != null)
             PhotonNetwork.NickName = UserIdInputField.text;
         else Debug.Log("닉넴 입력해라.");
@@ -118,7 +122,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     }
     public override void OnJoinedRoom()
     {
-
+        base.OnJoinedRoom();
+        Debug.Log("OnJoinRoom되라고 시발새끼야");
         if (playerListEntries == null)
         {
             playerListEntries = new Dictionary<int, GameObject>();
@@ -221,11 +226,12 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         RoomOptions options = new RoomOptions { MaxPlayers = 4 };
 
         PhotonNetwork.CreateRoom(roomName, options, null);
-        SceneManager.LoadScene("GamePlay");
+        //SceneManager.LoadScene("GamePlay");
     }
 
     public void OnJoinRandomRoomButtonClicked()
     {
+        Debug.Log("OnJoinRandomRoom");
 
         PhotonNetwork.JoinRandomRoom();
     }
