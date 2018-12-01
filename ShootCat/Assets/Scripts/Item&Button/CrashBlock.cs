@@ -3,35 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-
-
-
 public class CrashBlock : MonoBehaviour {
 
-    public Counter counter;
-    public CounterMethods CounterMethods;//카운터 메소드 가져옴
 
-    private int RemainBlockCount = 20;
-    public GameObject block;
     public EventTrigger pushBtnEventTrigger;
+    public bool isBlock;
+    private int remainBlockCount;
 
-    public void BlockInit()
+    [Range(10, 100)]
+    public int remainBlockCountInit;
+    public void Start()
     {
-        RemainBlockCount = 20;
+        isBlock = true;
+        RemainBlockCountInit();
+        this.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            remainBlockCount--;
+
+            if (remainBlockCount <= 0)
+            {
+                isBlock = false;
+                DestoryBlock();
+            }
+        });
     }
 
-    public void ActiveBlockCrash()//블록 부수기 함수
+
+   
+    public void RemainBlockCountInit()
     {
-        Debug.Log(RemainBlockCount);
-        RemainBlockCount -= 1;
-        if (RemainBlockCount < 0)
-        {
-            block.SetActive(false);
-            pushBtnEventTrigger.enabled = true;
-        }
-        else
-        {
-            pushBtnEventTrigger.enabled = false;
-        }
+        remainBlockCount = remainBlockCountInit;
     }
+    public void DestoryBlock() {
+
+        pushBtnEventTrigger.enabled = true;
+        Destroy(gameObject);
+
+    }
+
+
+
+
 }

@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 222754644009742374}
   - component: {fileID: 114668457390742728}
   - component: {fileID: 114569592617550054}
-  - component: {fileID: 114323165620929690}
   - component: {fileID: 114716446745073524}
   m_Layer: 5
   m_Name: Block
@@ -30,26 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &114323165620929690
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1024416518566590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
+  m_IsActive: 1
 --- !u!114 &114569592617550054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,10 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a20382f4b1c9e418a4409fd1dbf570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counter: {fileID: 0}
-  CounterMethods: {fileID: 0}
-  block: {fileID: 1024416518566590}
   pushBtnEventTrigger: {fileID: 0}
+  isBlock: 0
+  remainBlockCountInit: 10
 --- !u!222 &222754644009742374
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -76,71 +76,71 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 
 
-        //좌
+        ////좌
 
-        if (trans.anchoredPosition.x - trans.rect.width / 2 < 0)
-        {
+        //if (trans.anchoredPosition.x - trans.rect.width / 2 < 0)
+        //{
 
-            Vector3 vector;
+        //    Vector3 vector;
 
-            vector = transform.position;
+        //    vector = transform.position;
 
-            vector.x = trans.rect.width / 2 + 1f;
+        //    vector.x = trans.rect.width / 2 + 1f;
 
-            transform.position = vector;
+        //    transform.position = vector;
 
-        }
-
-
-
-        //상
-
-        if (trans.anchoredPosition.y > 0)
-        {
-
-            Vector3 vector;
-
-            vector = trans.anchoredPosition;
-
-            vector.y = -1f;
-
-            trans.anchoredPosition = vector;
-
-        }
+        //}
 
 
 
-        //하
+        ////상
 
-        if (trans.anchoredPosition.y - trans.rect.height < Screen.height * -1)
-        {
+        //if (trans.anchoredPosition.y > 0)
+        //{
 
-            Vector3 vector;
+        //    Vector3 vector;
 
-            vector = trans.anchoredPosition;
+        //    vector = trans.anchoredPosition;
 
-            vector.y = Screen.height * -1 + trans.rect.height;
+        //    vector.y = -1f;
 
-            trans.anchoredPosition = vector;
+        //    trans.anchoredPosition = vector;
 
-        }
+        //}
 
 
 
-        //우
+        ////하
 
-        if (trans.anchoredPosition.x + trans.rect.width / 2 > Screen.width)
-        {
+        //if (trans.anchoredPosition.y - trans.rect.height < Screen.height * -1)
+        //{
 
-            Vector3 vector;
+        //    Vector3 vector;
 
-            vector = trans.anchoredPosition;
+        //    vector = trans.anchoredPosition;
 
-            vector.x = Screen.width - trans.rect.width / 2;
+        //    vector.y = Screen.height * -1 + trans.rect.height;
 
-            trans.anchoredPosition = vector;
+        //    trans.anchoredPosition = vector;
 
-        }
+        //}
+
+
+
+        ////우
+
+        //if (trans.anchoredPosition.x + trans.rect.width / 2 > Screen.width)
+        //{
+
+        //    Vector3 vector;
+
+        //    vector = trans.anchoredPosition;
+
+        //    vector.x = Screen.width - trans.rect.width / 2;
+
+        //    trans.anchoredPosition = vector;
+
+        //}
 
 
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -470,116 +470,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreBoard: {fileID: 106063482}
---- !u!1001 &127275154
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 376696312}
-    m_Modifications:
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 868.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 893.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114716446745073524, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: CounterMethods
-      value: 
-      objectReference: {fileID: 131627134}
-    - target: {fileID: 114716446745073524, guid: 332e28ec9d31e7142b21ca0a30f43054,
-        type: 2}
-      propertyPath: pushBtnEventTrigger
-      value: 
-      objectReference: {fileID: 1119282945}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 332e28ec9d31e7142b21ca0a30f43054, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &131627132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,7 +1494,6 @@ RectTransform:
   - {fileID: 1119282943}
   - {fileID: 1129292783}
   - {fileID: 1153881527}
-  - {fileID: 1278600296}
   - {fileID: 1247039852}
   m_Father: {fileID: 1457390005}
   m_RootOrder: 1
@@ -2017,7 +1906,7 @@ Prefab:
     - target: {fileID: 224904929742777000, guid: 4c918c67582f5bf45b89f44de3226d70,
         type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224904929742777000, guid: 4c918c67582f5bf45b89f44de3226d70,
         type: 2}
@@ -3143,7 +3032,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -793, y: -339}
+  m_AnchoredPosition: {x: 411, y: -252}
   m_SizeDelta: {x: 152.3, y: 152.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1108192776
@@ -3185,20 +3074,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 131627134}
-        m_MethodName: CounterPlus
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 100
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1108192774}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2004991077}
+        m_MethodName: NetworkCountPump
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3349,7 +3227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000012398, y: -669.7}
+  m_AnchoredPosition: {x: 22, y: -449}
   m_SizeDelta: {x: 158, y: 307.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1119282944
@@ -3936,26 +3814,11 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!1 &1247039851 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1322800343832246, guid: 4c918c67582f5bf45b89f44de3226d70,
-    type: 2}
-  m_PrefabInternal: {fileID: 702215799}
 --- !u!224 &1247039852 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224904929742777000, guid: 4c918c67582f5bf45b89f44de3226d70,
     type: 2}
   m_PrefabInternal: {fileID: 702215799}
---- !u!1 &1278600295 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1024416518566590, guid: 332e28ec9d31e7142b21ca0a30f43054,
-    type: 2}
-  m_PrefabInternal: {fileID: 127275154}
---- !u!224 &1278600296 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224512574046116832, guid: 332e28ec9d31e7142b21ca0a30f43054,
-    type: 2}
-  m_PrefabInternal: {fileID: 127275154}
 --- !u!1 &1282758087
 GameObject:
   m_ObjectHideFlags: 0
@@ -4026,12 +3889,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushBtn: {fileID: 346243886}
   ButtonMethods: {fileID: 943988140}
-  CounterMethods: {fileID: 0}
+  CounterMethods: {fileID: 131627134}
   pushBtnEventTrigger: {fileID: 1119282945}
   catPawIce: {fileID: 309939523}
   catPawNormal: {fileID: 1492727130}
   countUp: {fileID: 0}
+  centerPosition: {fileID: 1457390005}
   iceTime: 3.2
+  block: {fileID: 1024416518566590, guid: 332e28ec9d31e7142b21ca0a30f43054, type: 2}
+  plusCount: 12
+  doubleTime: 2.819
 --- !u!4 &1282758091
 Transform:
   m_ObjectHideFlags: 0
@@ -5652,7 +5519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -821, y: -630}
+  m_AnchoredPosition: {x: -440.55, y: -592.15}
   m_SizeDelta: {x: 152.3, y: 152.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1850699534
@@ -5694,9 +5561,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1850699532}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2004991077}
+        m_MethodName: NetworkCrashBlock
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5704,17 +5571,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1278600295}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -5994,7 +5850,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -784, y: -893}
+  m_AnchoredPosition: {x: -157, y: -155}
   m_SizeDelta: {x: 152.3, y: 152.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1954988307
@@ -6036,27 +5892,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1954988305}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 100
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1247039851}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2004991077}
+        m_MethodName: NetworkDoubleCount
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null

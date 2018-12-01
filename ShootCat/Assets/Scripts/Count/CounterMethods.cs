@@ -35,14 +35,22 @@ public class CounterMethods : MonoBehaviour {
         counter.UpdateRemainingCountText();
     }
 
-    public void CountDouble()
-    {//카운트 두배 함수
-        counter.RemaingCount -= counter.CountSize * 2;
-        counter.YourCount+= counter.YourCountSize * 2;
-        counter.UpdateRemainingCountText();
-        counter.UpdateYourCountText();
+    public void DoubleCount()//카운트 두배 함수
+    {
+       counter.CountSize= counter.CountSize* 2;
+        counter.YourCountSize = counter.YourCountSize * 2;
+       
     }
+    public void DivideCount()//카운트 2분의 1 함수
+    {
+        counter.CountSize = counter.CountSize/2;
+        counter.YourCountSize = counter.YourCountSize / 2;
+    }
+    public void InitCount()//카운트사이즈 초기화
+    {
+        counter.CountSize = 1;
 
+    }
     public void YourCountPlus() {
         counter.YourCount += counter.YourCountSize; //버튼 누르면 이 함수를 호출 시켜서 더해줌
         counter.UpdateYourCountText();

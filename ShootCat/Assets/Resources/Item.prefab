@@ -69,10 +69,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushBtn: {fileID: 0}
   ButtonMethods: {fileID: 0}
+  CounterMethods: {fileID: 0}
   pushBtnEventTrigger: {fileID: 0}
   catPawIce: {fileID: 0}
   catPawNormal: {fileID: 0}
+  countUp: {fileID: 0}
+  centerPosition: {fileID: 0}
   iceTime: 2.93
+  block: {fileID: 1024416518566590, guid: 332e28ec9d31e7142b21ca0a30f43054, type: 2}
+  plusCount: 2
+  doubleTime: 3.057
 --- !u!114 &114280702144520054
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -60,7 +60,27 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     {
         //ItemView.ViewID = ItemViewID;
         Debug.Log(ItemView + "  " + ItemView.ViewID);
-        ItemView.RPC("_NetworkIce", RpcTarget.All);
+        ItemView.RPC("_NetworkIce()", RpcTarget.All);
+    }
+
+    public void NetworkCrashBlock()//CrashBlock 아이템 적용
+    {
+        //ItemView.ViewID = ItemViewID;
+        Debug.Log(ItemView + "  " + ItemView.ViewID);
+        ItemView.RPC("_NetworkCrashBlock()", RpcTarget.All);
+    }
+
+    public void NetworkCountPump()//CrashBlock 아이템 적용
+    {
+        //ItemView.ViewID = ItemViewID;
+        Debug.Log(ItemView + "  " + ItemView.ViewID); 
+        ItemView.RPC("_NetworkCountPump()", RpcTarget.All);
+    }
+    public void NetworkDoubleCount()//CrashBlock 아이템 적용
+    {
+        //ItemView.ViewID = ItemViewID;
+        Debug.Log(ItemView + "  " + ItemView.ViewID);
+        ItemView.RPC("_NetworkDoubleCount()", RpcTarget.All);
     }
     #endregion
 
