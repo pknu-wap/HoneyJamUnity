@@ -35,6 +35,13 @@ public class CounterMethods : MonoBehaviour {
         counter.UpdateRemainingCountText();
     }
 
+    public void CountDouble()
+    {//카운트 두배 함수
+        counter.RemaingCount -= counter.CountSize * 2;
+        counter.YourCount+= counter.YourCountSize * 2;
+        counter.UpdateRemainingCountText();
+        counter.UpdateYourCountText();
+    }
 
     public void YourCountPlus() {
         counter.YourCount += counter.YourCountSize; //버튼 누르면 이 함수를 호출 시켜서 더해줌
