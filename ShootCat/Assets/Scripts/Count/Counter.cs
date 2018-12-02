@@ -26,11 +26,8 @@ public class Counter : MonoBehaviourPunCallbacks
         }
     }
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> ItemNetwork
     public int CountSize { get; set; } //카운터 가감 양(기본 1 , 아이템 따라 다름)
 
     public int YourCount { get; set; } //플레이어가 지금까지 누른 수

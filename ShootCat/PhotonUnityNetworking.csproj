@@ -295,39 +295,6 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
-<<<<<<< HEAD
- <Reference Include="ConsolePro.Editor">
- <HintPath>C:/Users/paper/Documents/gits/HoneyJamUnity/ShootCat/Assets/ConsolePro/Editor/ConsolePro.Editor.dll</HintPath>
- </Reference>
-=======
->>>>>>> ItemNetwork
- <Reference Include="Photon3Unity3D">
- <HintPath>C:/Users/paper/Documents/gits/HoneyJamUnity/ShootCat/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
- </Reference>
- <Reference Include="websocket-sharp">
- <HintPath>C:/Users/paper/Documents/gits/HoneyJamUnity/ShootCat/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
- </Reference>
- <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/paper/Documents/gits/HoneyJamUnity/ShootCat/Assets/Photon/PhotonUnityNetworking/Code/Editor/Newtonsoft.Json.dll</HintPath>
- </Reference>
- <Reference Include="Sirenix.OdinInspector.Attributes">
- <HintPath>C:/Users/paper/Documents/gits/HoneyJamUnity/ShootCat/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
- </Reference>
- <Reference Include="Sirenix.OdinInspector.Editor">
- <HintPath>C:/Users/paper/Documents/gits/HoneyJamUnity/ShootCat/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Sirenix.Serialization.Config">
- <HintPath>C:/Users/paper/Documents/gits/HoneyJamUnity/ShootCat/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
- </Reference>
- <Reference Include="Sirenix.Serialization">
- <HintPath>C:/Users/paper/Documents/gits/HoneyJamUnity/ShootCat/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
- </Reference>
- <Reference Include="Sirenix.Utilities">
- <HintPath>C:/Users/paper/Documents/gits/HoneyJamUnity/ShootCat/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
- </Reference>
- <Reference Include="Sirenix.Utilities.Editor">
- <HintPath>C:/Users/paper/Documents/gits/HoneyJamUnity/ShootCat/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Users/paper/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -342,6 +309,33 @@
  </Reference>
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/Users/paper/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="Photon3Unity3D">
+ <HintPath>C:/Users/paper/Downloads/HoneyJamUnity-434c671c3284d2753c37c0495eaa15160384cb38/ShootCat/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+ </Reference>
+ <Reference Include="websocket-sharp">
+ <HintPath>C:/Users/paper/Downloads/HoneyJamUnity-434c671c3284d2753c37c0495eaa15160384cb38/ShootCat/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>C:/Users/paper/Downloads/HoneyJamUnity-434c671c3284d2753c37c0495eaa15160384cb38/ShootCat/Assets/Photon/PhotonUnityNetworking/Code/Editor/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="Sirenix.Serialization">
+ <HintPath>C:/Users/paper/Downloads/HoneyJamUnity-434c671c3284d2753c37c0495eaa15160384cb38/ShootCat/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
+ </Reference>
+ <Reference Include="Sirenix.Utilities">
+ <HintPath>C:/Users/paper/Downloads/HoneyJamUnity-434c671c3284d2753c37c0495eaa15160384cb38/ShootCat/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
+ </Reference>
+ <Reference Include="Sirenix.Utilities.Editor">
+ <HintPath>C:/Users/paper/Downloads/HoneyJamUnity-434c671c3284d2753c37c0495eaa15160384cb38/ShootCat/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Sirenix.OdinInspector.Editor">
+ <HintPath>C:/Users/paper/Downloads/HoneyJamUnity-434c671c3284d2753c37c0495eaa15160384cb38/ShootCat/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Sirenix.OdinInspector.Attributes">
+ <HintPath>C:/Users/paper/Downloads/HoneyJamUnity-434c671c3284d2753c37c0495eaa15160384cb38/ShootCat/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
+ </Reference>
+ <Reference Include="Sirenix.Serialization.Config">
+ <HintPath>C:/Users/paper/Downloads/HoneyJamUnity-434c671c3284d2753c37c0495eaa15160384cb38/ShootCat/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>

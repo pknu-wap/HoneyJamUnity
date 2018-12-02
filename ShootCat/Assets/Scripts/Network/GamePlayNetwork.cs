@@ -60,9 +60,6 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     {
         //ItemView.ViewID = ItemViewID;
         Debug.Log(ItemView + "  " + ItemView.ViewID);
-<<<<<<< HEAD
-        ItemView.RPC("_NetworkIce", RpcTarget.All);
-=======
         ItemView.RPC("_NetworkIce", RpcTarget.Others);
     }
 
@@ -84,7 +81,6 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         //ItemView.ViewID = ItemViewID;
         Debug.Log(ItemView + "  " + ItemView.ViewID);
         ItemView.RPC("_NetworkDoubleCount", RpcTarget.Others);
->>>>>>> ItemNetwork
     }
     #endregion
 
@@ -116,16 +112,5 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
 
     }
     #endregion
-<<<<<<< HEAD
-    void OnGUI()
-
-    
-    {
-        if (GUI.Button(new Rect(10, 10, 150, 100), "I am a button"))
-            Debug.Log(ItemView + "  " + ItemView.ViewID);
-
-    }
-=======
    
->>>>>>> ItemNetwork
 }

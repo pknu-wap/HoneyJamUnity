@@ -58,14 +58,9 @@ public class ButtonMethods : MonoBehaviour
         btn.GetComponent<Image>().sprite = image.GetComponent<Image>().sprite;
     
     }
-<<<<<<< HEAD
-    #region Item
-  
-=======
 
 
     #region Item
     
->>>>>>> ItemNetwork
     #endregion
 }

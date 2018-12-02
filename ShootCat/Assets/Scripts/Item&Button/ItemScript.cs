@@ -11,11 +11,6 @@ public class ItemScript : MonoBehaviour
 {
     public Button pushBtn;
     public ButtonMethods ButtonMethods;
-<<<<<<< HEAD
-    public EventTrigger pushBtnEventTrigger;
-    public Image catPawIce;
-    public Image catPawNormal;
-=======
     public CounterMethods CounterMethods;//카운터 메소드 가져옴
     public EventTrigger pushBtnEventTrigger;
     public Image catPawIce;
@@ -24,7 +19,6 @@ public class ItemScript : MonoBehaviour
     public Image countUp; // 남은 숫자를 늘리는 아이템
     public Transform centerPosition;
 
->>>>>>> ItemNetwork
     #region Behavior
     void Start()
     {
@@ -39,11 +33,7 @@ public class ItemScript : MonoBehaviour
 
 
 
-<<<<<<< HEAD
-
-=======
     #region ActiveItem
->>>>>>> ItemNetwork
 
     [Range(0.0f, 5.0f)]
     public float iceTime;//얼릴 시간
@@ -53,10 +43,6 @@ public class ItemScript : MonoBehaviour
         ButtonMethods.BtnImageChange(pushBtn, catPawIce);
         Debug.Log(Time.time);
         Invoke("ButtonNormal", iceTime);
-<<<<<<< HEAD
-       
-    }
-=======
     }
 
 
@@ -89,17 +75,12 @@ public class ItemScript : MonoBehaviour
 
 
     #region ActiveMethod
->>>>>>> ItemNetwork
     public void ButtonNormal()
     {
         ButtonMethods.BtnImageChange(pushBtn, catPawNormal);
         Debug.Log(Time.time);
         pushBtnEventTrigger.enabled = true;
     }
-<<<<<<< HEAD
-
-      
-=======
     public void CountSizeNormal()
     {
         Debug.Log(Time.time);
@@ -112,19 +93,10 @@ public class ItemScript : MonoBehaviour
 
 #endregion
 
->>>>>>> ItemNetwork
     #region PunRpc//네트워크 파트라 안봐도 되요 여긴
     [PunRPC]
     public void _NetworkIce()
     {
-<<<<<<< HEAD
-
-        Debug.Log(this.GetComponent<PhotonView>().ViewID);
-        ActiveIce();
-    }
-    #endregion
-   
-=======
         Debug.Log(this.GetComponent<PhotonView>().ViewID);
         ActiveIce();
     }
@@ -149,6 +121,5 @@ public class ItemScript : MonoBehaviour
     }
     #endregion
 
->>>>>>> ItemNetwork
 }
 
