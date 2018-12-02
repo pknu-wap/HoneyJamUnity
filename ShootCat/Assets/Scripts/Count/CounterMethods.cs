@@ -14,10 +14,12 @@ public class CounterMethods : MonoBehaviour {
 
     void Update () {
     }
+   [Range(0,500)] 
+    public int remainCountSize;
 
     public void CounterInit() {
 
-        counter.RemaingCount = 300;
+        counter.RemaingCount = remainCountSize;
         counter.CountSize = 1;
         counter.YourCount = 0;
         counter.YourCountSize = 1;
