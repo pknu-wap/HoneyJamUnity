@@ -286,9 +286,12 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
+<<<<<<< HEAD
  <Reference Include="ConsolePro.Editor">
  <HintPath>C:/Users/paper/Documents/gits/HoneyJamUnity/ShootCat/Assets/ConsolePro/Editor/ConsolePro.Editor.dll</HintPath>
  </Reference>
+=======
+>>>>>>> ItemNetwork
  <Reference Include="Photon3Unity3D">
  <HintPath>C:/Users/paper/Documents/gits/HoneyJamUnity/ShootCat/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
  </Reference>

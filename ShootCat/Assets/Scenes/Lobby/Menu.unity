@@ -113,6 +113,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &21828104
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +184,8 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 21828104}
   m_CullTransparentMesh: 0
+=======
+>>>>>>> ItemNetwork
 --- !u!1 &35177575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2165,11 +2168,19 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
+<<<<<<< HEAD
   m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 1
+=======
+  m_havePropertiesChanged: 0
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_isInputParsingRequired: 0
+>>>>>>> ItemNetwork
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -3142,8 +3153,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0579a8e23fe6baf43999860b0423581b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   pvCache: {fileID: 0}
   <UserId>k__BackingField: 
+=======
+>>>>>>> ItemNetwork
   UserIdInputField: {fileID: 1658185884}
   InputYourId: {fileID: 1224155822}
   createRoomScript: {fileID: 1417864160}
@@ -3435,6 +3449,7 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
+<<<<<<< HEAD
 --- !u!1 &765433396
 GameObject:
   m_ObjectHideFlags: 0
@@ -3545,6 +3560,8 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+=======
+>>>>>>> ItemNetwork
 --- !u!1 &816985167
 GameObject:
   m_ObjectHideFlags: 0
@@ -5061,7 +5078,10 @@ RectTransform:
   - {fileID: 1990383149}
   - {fileID: 210355342}
   - {fileID: 2068899108}
+<<<<<<< HEAD
   - {fileID: 21828105}
+=======
+>>>>>>> ItemNetwork
   m_Father: {fileID: 968222045}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6184,7 +6204,11 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< HEAD
   m_IsActive: 0
+=======
+  m_IsActive: 1
+>>>>>>> ItemNetwork
 --- !u!224 &1224155823
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6703,11 +6727,19 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
+<<<<<<< HEAD
   m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 1
+=======
+  m_havePropertiesChanged: 0
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_isInputParsingRequired: 0
+>>>>>>> ItemNetwork
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -6728,6 +6760,7 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1331001854}
   m_CullTransparentMesh: 0
+<<<<<<< HEAD
 --- !u!1 &1350108250
 GameObject:
   m_ObjectHideFlags: 0
@@ -6840,6 +6873,8 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1350108250}
   m_CullTransparentMesh: 0
+=======
+>>>>>>> ItemNetwork
 --- !u!1 &1391647105
 GameObject:
   m_ObjectHideFlags: 0
@@ -7256,7 +7291,10 @@ MonoBehaviour:
   InsideRoomPanel: {fileID: 0}
   StartGameButton: {fileID: 0}
   PlayerListEntryPrefab: {fileID: 0}
+<<<<<<< HEAD
   UserIdInputField: {fileID: 0}
+=======
+>>>>>>> ItemNetwork
 --- !u!1 &1567860727
 GameObject:
   m_ObjectHideFlags: 0
@@ -7327,28 +7365,45 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1567860727}
   m_CullTransparentMesh: 0
+<<<<<<< HEAD
 --- !u!1 &1618842095
+=======
+--- !u!1 &1639309570
+>>>>>>> ItemNetwork
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 1618842096}
   - component: {fileID: 1618842098}
   - component: {fileID: 1618842097}
   m_Layer: 5
   m_Name: PlayerName
+=======
+  - component: {fileID: 1639309571}
+  - component: {fileID: 1639309573}
+  - component: {fileID: 1639309572}
+  m_Layer: 5
+  m_Name: TitleText
+>>>>>>> ItemNetwork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!224 &1618842096
+=======
+--- !u!224 &1639309571
+>>>>>>> ItemNetwork
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1618842095}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 15.05337}
@@ -7518,6 +7573,22 @@ RectTransform:
   m_SizeDelta: {x: 74.55, y: 38.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1639309572
+=======
+  m_GameObject: {fileID: 1639309570}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.58761, y: 2.61915, z: 2.5244799}
+  m_Children: []
+  m_Father: {fileID: 745514815}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -122.725, y: -19.45}
+  m_SizeDelta: {x: 74.55, y: 38.9}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1639309572
+>>>>>>> ItemNetwork
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7922,11 +7993,19 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
+<<<<<<< HEAD
   m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 1
+=======
+  m_havePropertiesChanged: 0
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_isInputParsingRequired: 0
+>>>>>>> ItemNetwork
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -8823,6 +8902,7 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1770179545}
   m_CullTransparentMesh: 0
+<<<<<<< HEAD
 --- !u!1 &1811863704
 GameObject:
   m_ObjectHideFlags: 0
@@ -8980,6 +9060,8 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1811863704}
   m_CullTransparentMesh: 0
+=======
+>>>>>>> ItemNetwork
 --- !u!1 &1847610582
 GameObject:
   m_ObjectHideFlags: 0

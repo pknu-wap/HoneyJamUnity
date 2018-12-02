@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f385c0ab8dd21fb44bdd50703abb840c
+=======
+guid: 3e42e8fc3fc0a7a448b0376af8172cba
+>>>>>>> ItemNetwork
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

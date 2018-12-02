@@ -1924,7 +1924,16 @@ namespace Photon.Pun
         public static bool JoinLobby(TypedLobby typedLobby)
         {
             if (PhotonNetwork.IsConnected && PhotonNetwork.Server == ServerConnection.MasterServer)
+<<<<<<< HEAD
                 return NetworkingClient.OpJoinLobby(typedLobby);
+=======
+                
+            {
+                Debug.Log("JoinLobby success");
+                return NetworkingClient.OpJoinLobby(typedLobby);
+            }
+            Debug.Log("JoinLobby failed");
+>>>>>>> ItemNetwork
             return false;
         }
 
