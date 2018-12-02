@@ -33,4 +33,7 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - _NetworkCountPump
+  - _NetworkCrashBlock
+  - NetworkDoubleCount
   DisableAutoOpenWizard: 1

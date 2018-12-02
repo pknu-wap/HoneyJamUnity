@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/paper/Documents/gits/HoneyJamUnity/ShootCat/ShootCat.exe
+C:/Users/paper/Documents/gits/ShootCat.exe
 SceneListBegin?
 Assets/Scenes/Lobby/Menu.unity
 Assets/Scenes/GamePlay.unity

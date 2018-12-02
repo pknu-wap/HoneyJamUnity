@@ -60,27 +60,27 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     {
         //ItemView.ViewID = ItemViewID;
         Debug.Log(ItemView + "  " + ItemView.ViewID);
-        ItemView.RPC("_NetworkIce()", RpcTarget.All);
+        ItemView.RPC("_NetworkIce", RpcTarget.Others);
     }
 
     public void NetworkCrashBlock()//CrashBlock 아이템 적용
     {
         //ItemView.ViewID = ItemViewID;
         Debug.Log(ItemView + "  " + ItemView.ViewID);
-        ItemView.RPC("_NetworkCrashBlock()", RpcTarget.All);
+        ItemView.RPC("_NetworkCrashBlock", RpcTarget.Others);
     }
 
     public void NetworkCountPump()//CrashBlock 아이템 적용
     {
         //ItemView.ViewID = ItemViewID;
         Debug.Log(ItemView + "  " + ItemView.ViewID); 
-        ItemView.RPC("_NetworkCountPump()", RpcTarget.All);
+        ItemView.RPC("_NetworkCountPump", RpcTarget.Others);
     }
     public void NetworkDoubleCount()//CrashBlock 아이템 적용
     {
         //ItemView.ViewID = ItemViewID;
         Debug.Log(ItemView + "  " + ItemView.ViewID);
-        ItemView.RPC("_NetworkDoubleCount()", RpcTarget.All);
+        ItemView.RPC("_NetworkDoubleCount", RpcTarget.Others);
     }
     #endregion
 
@@ -112,12 +112,5 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
 
     }
     #endregion
-    void OnGUI()
-
-    
-    {
-        if (GUI.Button(new Rect(10, 10, 150, 100), "I am a button"))
-            Debug.Log(ItemView + "  " + ItemView.ViewID);
-
-    }
+   
 }

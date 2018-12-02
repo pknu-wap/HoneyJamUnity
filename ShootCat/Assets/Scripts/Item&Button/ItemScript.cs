@@ -100,17 +100,21 @@ public class ItemScript : MonoBehaviour
         Debug.Log(this.GetComponent<PhotonView>().ViewID);
         ActiveIce();
     }
+    [PunRPC]
     public void _NetworkCrashBlock()
     {
         Debug.Log(this.GetComponent<PhotonView>().ViewID);
         ActiveCrashBlock();
     }
-    public void _NetworkCounterPump()
+
+    [PunRPC]
+    public void _NetworkCountPump()
     {
         Debug.Log(this.GetComponent<PhotonView>().ViewID);
         ActiveCounterPump();
     }
-    public void _NetworkDoubleCount()
+    [PunRPC]
+    public void NetworkDoubleCount()
     {
         Debug.Log(this.GetComponent<PhotonView>().ViewID);
         ActiveDoubleCount();
