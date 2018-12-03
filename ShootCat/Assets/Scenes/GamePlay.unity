@@ -8104,10 +8104,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CounterPrefab: {fileID: 1765990941}
   ItemPrefab: {fileID: 712597089}
-  Player1Nickname: {fileID: 0}
-  Player2Nickname: {fileID: 0}
-  Player3Nickname: {fileID: 0}
-  Player4Nickname: {fileID: 0}
+  Player1Nickname: {fileID: 902841271}
+  Player2Nickname: {fileID: 939904459}
+  Player3Nickname: {fileID: 1928974684}
+  Player4Nickname: {fileID: 1290360077}
 --- !u!4 &2004991078
 Transform:
   m_ObjectHideFlags: 0

@@ -62,6 +62,13 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         i = 0;
 
     }
+    void PlayerNicknameSet()
+    {//리스트에 넣어서 조지면 될꺼같음
+            Player1Nickname.text = playerInfo[0].playerNickname;
+            Player2Nickname.text = playerInfo[1].playerNickname;
+            //Player3Nickname.text = playerInfo[2].playerNickname;
+            //Player4Nickname.text = playerInfo[3].playerNickname;
+    }
     #region RPCs
     public void UpdateCount()//다른 플레이어 카운트 숫자 동기화
     {
@@ -125,6 +132,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         }
         playerInfo = new PlayerInfo[4];
         PlayerInfoSet();
+        PlayerNicknameSet();
     }
 
     void Update()

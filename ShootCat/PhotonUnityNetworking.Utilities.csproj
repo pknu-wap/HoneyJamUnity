@@ -350,6 +350,9 @@
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/Users/paper/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
+ <Reference Include="ConsolePro.Editor">
+ <HintPath>C:/Users/paper/Documents/gits/HoneyJamUnity/ShootCat/Assets/ConsolePro/Editor/ConsolePro.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
  </Reference>

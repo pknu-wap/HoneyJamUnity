@@ -1884,6 +1884,7 @@ namespace Photon.Pun
         /// </remarks>
         public static bool JoinLobby()
         {
+            Debug.Log("jOINlOBBY");
             return JoinLobby(null);
         }
 

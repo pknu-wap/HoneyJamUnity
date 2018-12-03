@@ -136,6 +136,7 @@ c7dd12c15208b0447e101f80038706df UnityEngine.Timeline.dll:UnityEngine.Timeline.A
 fa262644fac0869ddef8222cdcdc1af7 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.SendRateOnSerializeField
 61e1aa396f3b71dddd0de218f1da8e59 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.TabViewManager
 66b3109aa5921cf800bec17926c6adba Unity.TextMeshPro.dll:TMPro.TMP_SubMeshUI
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.ScoreManager
 b609004660c68459b8e9a719c4b1bea2 Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.AsteroidsGameManager
 201273fb4f889724fb090164b7d6c657 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 486cd95c82d8305219c352c06b776e1f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -183,7 +184,7 @@ d41af92d60a614749bef8643b9d5aae2 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.For
 8ba0a5ff0517fc43d26b4c59601bf5b9 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.InfosPanelPlaceholder
 f16835701e71dd5d6fb1fed4b7aff1d8 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 41324b3b3473d001501c3dcd9ebdbd92 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.OnClickInstantiate
-9e5146915b4268e7c5299b6fc3966f88 Assembly-CSharp.dll:.LobbyMainPanel
+df1675c659bfd6eb91a6e2d731403e15 Assembly-CSharp.dll:.LobbyMainPanel
 3d9992eb9e8452d2fb21ba548bd4aca1 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.CloudRegionProperty
 cc897ffaccf7411ad5f3b9b409024407 Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.PlayerOverviewPanel
 cee104689b94fe95e9768f045e7bea29 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.StatesGui
@@ -377,4 +378,4 @@ fafb4eb45ef9ddcf382bd530730acf14 Assembly-CSharp.dll:.ItemScript
 f1d2955b217f217e8ae21c91116e86e4 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.Forms.UserIdUiForm
 3d9992eb9e8452d2fb21ba548bd4aca1 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.CountOfRoomsProperty
 424f3aad821677fab5a6a08fbbf773db Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.LobbyTopPanel
-486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.ScoreManager
+f86e6927c45c5c00fbb987f2a739b41e Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.NetworkState

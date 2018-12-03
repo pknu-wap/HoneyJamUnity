@@ -21,11 +21,11 @@ MonoBehaviour:
     Server: 
     Port: 0
     Protocol: 0
-    EnableLobbyStatistics: 0
+    EnableLobbyStatistics: 1
     NetworkLogging: 1
-  StartInOfflineMode: 0
+  StartInOfflineMode: 1
   PunLogging: 0
-  EnableSupportLogger: 0
+  EnableSupportLogger: 1
   RunInBackground: 1
   RpcList:
   - _UpdateCount

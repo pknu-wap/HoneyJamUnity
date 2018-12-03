@@ -79,6 +79,7 @@
      <Compile Include="Assets\CountDownText.cs" />
      <Compile Include="Assets\DragHandler.cs" />
      <Compile Include="Assets\LobbyMainPanel.cs" />
+     <Compile Include="Assets\NetworkState.cs" />
      <Compile Include="Assets\Photon\PhotonUnityNetworking\Demos\DemoAsteroids\Scripts\AsteroidsGame.cs" />
      <Compile Include="Assets\Photon\PhotonUnityNetworking\Demos\DemoAsteroids\Scripts\Game\Asteroid.cs" />
      <Compile Include="Assets\Photon\PhotonUnityNetworking\Demos\DemoAsteroids\Scripts\Game\AsteroidsGameManager.cs" />
