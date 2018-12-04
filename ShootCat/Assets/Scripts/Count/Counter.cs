@@ -7,13 +7,13 @@ using Photon.Realtime;
 public class Counter : MonoBehaviourPunCallbacks
 {
 
-    GamePlayNetwork gamePlayNetwork;
-   public GameObject RakingBoardPanel;
-    public int yourCount;//플레이어가 누른 카운터 
+    public GamePlayNetwork gamePlayNetwork;
+    public GameObject RakingBoardPanel;
+    private int yourCount;//플레이어가 누른 카운터 
 
     public Text yourCountText; //플레이어가 누른 카운터 수를 나타내는 텍스트
 
-    private  int remainingCount;//카운터의 남은 수
+    private int remainingCount;//카운터의 남은 수
 
     public Text remainingCountText; //카운터의 남은 수를 나타내는 텍스트
 
@@ -29,12 +29,14 @@ public class Counter : MonoBehaviourPunCallbacks
     }
 
     public int CountSize { get; set; } //카운터 가감 양(기본 1 , 아이템 따라 다름)
-
-    public int YourCount { get { return YourCount;  }
-        set {
-
-            gamePlayNetwork.UpdateNetworkScore(value);
-        } } //플레이어가 지금까지 누른 수
+    public int YourCount
+    {
+        get { return yourCount; }
+        set
+        {
+            gamePlayNetwork.UpdatePlayerScore();
+        }
+    } //플레이어가 지금까지 누른 수
 
     public int YourCountSize { get; set; } //플레이어 지금까지 누른 수에 가감할 양(기본 1, 아이템 적용에 따라 다름)
 
@@ -61,8 +63,9 @@ public class Counter : MonoBehaviourPunCallbacks
 
 
 
-    public void GameOver(){
-        Debug.Log("remainCount "+remainingCount);
+    public void GameOver()
+    {
+        Debug.Log("remainCount " + remainingCount);
         RakingBoardPanel.SetActive(true);
 
 

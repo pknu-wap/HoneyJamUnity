@@ -64,17 +64,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         i = 0;
 
     }
-    [PunRPC]
-    void _UpdatePlayerScore()
-    {
-        int i = 0;
-        foreach (Player p in PhotonNetwork.PlayerList)
-        {
-            PlayerScore[i].text = p.score + "";
-            i++;
-        }
-        i = 0;
-    }
+  
     #region RPCs
     public void UpdateCount()//다른 플레이어 카운트 숫자 동기화
     {
@@ -84,7 +74,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         {
             getCount = CounterScript.RemaingCount;
 
-            CounterView.RPC("_UpdateCount", RpcTarget.Others, getCount);
+            CounterView.RPC("_UpdateCount", RpcTarget.AllBuffered, getCount);
         }
     }
     public void NetworkIce()//Ice 아이템 적용
@@ -117,7 +107,29 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     {
         //ItemView.ViewID = ItemViewID;
         Debug.Log(CounterView + "  " + CounterView.ViewID);
-        CounterView.RPC("_UpdatePlayerScore", RpcTarget.All);
+        CounterView.RPC("_UpdatePlayerScore", RpcTarget.Others);
+    }
+
+    [PunRPC]
+    void _UpdatePlayerScore()
+    {
+        int i = 0;
+        foreach (Player p in PhotonNetwork.PlayerList)
+        {
+            PlayerScore[i].text = p.score + "";
+            i++;
+        }
+        i = 0;
+    }
+    public void _UpdatePlayerScore1()
+    {
+        int i = 0;
+        foreach (Player p in PhotonNetwork.PlayerList)
+        {
+            PlayerScore[i].text = p.score + "";
+            i++;
+        }
+        i = 0;
     }
     #endregion
 
