@@ -22,13 +22,13 @@ namespace Photon.Realtime
     using System.Collections.Generic;
     using ExitGames.Client.Photon;
 
-    #if SUPPORTED_UNITY
+#if SUPPORTED_UNITY
     using UnityEngine;
-    #endif
-    #if SUPPORTED_UNITY || NETFX_CORE
+#endif
+#if SUPPORTED_UNITY || NETFX_CORE
     using Hashtable = ExitGames.Client.Photon.Hashtable;
     using SupportClass = ExitGames.Client.Photon.SupportClass;
-    #endif
+#endif
 
 
     /// <summary>
@@ -44,7 +44,7 @@ namespace Photon.Realtime
         /// </summary>
         protected internal Room RoomReference { get; set; }
 
-
+        public int score;//내가 임의로 추가한거디 이거땜에 터지면 내 속도 터진다.
         /// <summary>Backing field for property.</summary>
         private int actorNumber = -1;
 

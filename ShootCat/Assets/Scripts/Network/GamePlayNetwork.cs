@@ -15,6 +15,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     PlayerInfo[] playerInfo;
     List<PlayerInfo> PlayerInfos = new List<PlayerInfo>();
     public TMPro.TextMeshProUGUI[] PlayerNickname;
+    public TMPro.TextMeshProUGUI[] PlayerScore;
     
   
     #region ViewInstantiate
@@ -56,18 +57,23 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         {
             Debug.Log("i : " +i +" player : "+p.NickName);
         
-            playerInfo[i] = new PlayerInfo(p.NickName);
-            PlayerNickname[i].text = playerInfo[i].playerNickname;
-
-            PlayerInfos.Add(playerInfo[i]);// add to list man
+            PlayerNickname[i].text = p.NickName;
+            PlayerScore[i].text = p.score+"";
             i++;
         }
         i = 0;
 
     }
-    void PlayerNicknameSet()
+    [PunRPC]
+    void _UpdatePlayerScore()
     {
-       
+        int i = 0;
+        foreach (Player p in PhotonNetwork.PlayerList)
+        {
+            PlayerScore[i].text = p.score + "";
+            i++;
+        }
+        i = 0;
     }
     #region RPCs
     public void UpdateCount()//다른 플레이어 카운트 숫자 동기화
@@ -107,6 +113,12 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         Debug.Log(ItemView + "  " + ItemView.ViewID);
         ItemView.RPC("_NetworkDoubleCount", RpcTarget.Others);
     }
+    public void UpdatePlayerScore()//CrashBlock 아이템 적용
+    {
+        //ItemView.ViewID = ItemViewID;
+        Debug.Log(CounterView + "  " + CounterView.ViewID);
+        CounterView.RPC("_UpdatePlayerScore", RpcTarget.All);
+    }
     #endregion
 
 
@@ -132,16 +144,19 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         }
         playerInfo = new PlayerInfo[4];
         PlayerInfoSet();
-        PlayerNicknameSet();
+
+    
     }
 
-    void Update()
-    {
-        //Debug.Log("PlayerName" + playerInfo[0].playerNickname);
-        //Debug.Log("PlayerName"+playerInfo[2].p/*layerNickname);
-    }
+    
     #endregion
-   
+    public void UpdateNetworkScore(int score)
+    {
+        PhotonNetwork.LocalPlayer.score = score;
+
+
+    }
+
 }
 class PlayerInfo{
    public string playerNickname;

@@ -36,4 +36,5 @@ MonoBehaviour:
   - _NetworkCountPump
   - _NetworkCrashBlock
   - NetworkDoubleCount
+  - _UpdatePlayerScore
   DisableAutoOpenWizard: 1
