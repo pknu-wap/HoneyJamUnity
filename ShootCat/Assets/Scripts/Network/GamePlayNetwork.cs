@@ -13,10 +13,9 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     PhotonView ItemView;
     #endregion
     PlayerInfo[] playerInfo;
-    public TMPro.TextMeshProUGUI Player1Nickname;
-    public TMPro.TextMeshProUGUI Player2Nickname;
-    public TMPro.TextMeshProUGUI Player3Nickname;
-    public TMPro.TextMeshProUGUI Player4Nickname;
+    List<PlayerInfo> PlayerInfos = new List<PlayerInfo>();
+    public TMPro.TextMeshProUGUI[] PlayerNickname;
+    
   
     #region ViewInstantiate
 
@@ -56,18 +55,19 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             Debug.Log("i : " +i +" player : "+p.NickName);
+        
             playerInfo[i] = new PlayerInfo(p.NickName);
+            PlayerNickname[i].text = playerInfo[i].playerNickname;
+
+            PlayerInfos.Add(playerInfo[i]);// add to list man
             i++;
         }
         i = 0;
 
     }
     void PlayerNicknameSet()
-    {//리스트에 넣어서 조지면 될꺼같음
-            Player1Nickname.text = playerInfo[0].playerNickname;
-            Player2Nickname.text = playerInfo[1].playerNickname;
-            //Player3Nickname.text = playerInfo[2].playerNickname;
-            //Player4Nickname.text = playerInfo[3].playerNickname;
+    {
+       
     }
     #region RPCs
     public void UpdateCount()//다른 플레이어 카운트 숫자 동기화

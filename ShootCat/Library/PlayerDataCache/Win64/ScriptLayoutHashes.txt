@@ -40,6 +40,7 @@ f6637497451c9a030c421de4a1ad5cdb Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventH
 b14b4630cc47b6e9ea8a644551a6a8cc Unity.TextMeshPro.dll:TMPro.TMP_Text
 486cd95c82d8305219c352c06b776e1f PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.CullingHandler
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:TMPro.TMP_PhoneNumberValidator
+f86e6927c45c5c00fbb987f2a739b41e Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.NetworkState
 53cefe5d98cadefbab750835e70b89c0 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 486cd95c82d8305219c352c06b776e1f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 da2091a04d360891450faf16cdf621f1 UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -343,7 +344,7 @@ e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 486cd95c82d8305219c352c06b776e1f PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.OnEscapeQuit
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:Photon.Pun.Demo.PunBasics.PlayerNameInputField
 3d9992eb9e8452d2fb21ba548bd4aca1 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.CurrentRoomMasterClientIdProperty
-7737d9bff61ebe3d63960b0e1f151343 Assembly-CSharp.dll:.GamePlayNetwork
+c1d550d2cc095760796b96a2836e7637 Assembly-CSharp.dll:.GamePlayNetwork
 276474623f249c21da51d5ca59093b13 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.OnlineDocButton
 728cc0767de85f27b08715713bb1acf5 Assembly-CSharp.dll:Photon.Pun.Demo.SlotRacer.SlotRacerSplashScreen
 dbc40438a976f85ca073e24ed3879482 Assembly-CSharp.dll:Photon.Pun.Demo.PunBasics.GameManager
@@ -378,4 +379,3 @@ fafb4eb45ef9ddcf382bd530730acf14 Assembly-CSharp.dll:.ItemScript
 f1d2955b217f217e8ae21c91116e86e4 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.Forms.UserIdUiForm
 3d9992eb9e8452d2fb21ba548bd4aca1 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.CountOfRoomsProperty
 424f3aad821677fab5a6a08fbbf773db Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.LobbyTopPanel
-f86e6927c45c5c00fbb987f2a739b41e Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.NetworkState
