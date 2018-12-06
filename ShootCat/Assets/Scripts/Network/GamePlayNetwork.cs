@@ -9,15 +9,18 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     PhotonView CounterView;
     public GameObject CounterPrefab;
     public GameObject ItemPrefab;
+    public DragHandler dragHandler;
     Counter CounterScript;
     PhotonView ItemView;
     #endregion
     PlayerInfo[] playerInfo;
     List<PlayerInfo> PlayerInfos = new List<PlayerInfo>();
+    List<string> TagList = new List<string>();
+    string[] playerTag;
     public TMPro.TextMeshProUGUI[] PlayerNickname;
     public TMPro.TextMeshProUGUI[] PlayerScore;
-    
-  
+    public GameObject[] PlayerCat;
+
     #region ViewInstantiate
 
     [SerializeField]
@@ -51,17 +54,20 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
    
     void PlayerInfoSet() {
 
-        Debug.Log("실행은된다 InfoSet"+PhotonNetwork.PlayerList);
+        
         int i = 0;
+        int j = 0;
         foreach (Player p in PhotonNetwork.PlayerList)
         {
-            Debug.Log("i : " +i +" player : "+p.NickName);
-        
+            Debug.Log("i : " +i +" player : "+p.ActorNumber);
+            if (p.UserId != PhotonNetwork.LocalPlayer.UserId)
+                PlayerCat[j].tag = p.ActorNumber+"";
             PlayerNickname[i].text = p.NickName;
             PlayerScore[i].text = p.score+"";
             i++;
         }
         i = 0;
+        j = 0;
 
     }
   
@@ -81,7 +87,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     {
         //ItemView.ViewID = ItemViewID;
         Debug.Log(ItemView + "  " + ItemView.ViewID);
-        ItemView.RPC("_NetworkIce", RpcTarget.Others);
+        ItemView.RPC("_NetworkIce", RpcTarget.Others, dragHandler.target);
     }
 
     public void NetworkCrashBlock()//CrashBlock 아이템 적용
@@ -146,6 +152,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        SetTag();
         CounterScript = CounterPrefab.GetComponent<Counter>();
         CounterView = CounterPrefab.GetComponent<PhotonView>();
         ItemView = ItemPrefab.GetComponent<PhotonView>();
@@ -159,9 +166,18 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
 
     
     }
-
-    
     #endregion
+    public void SetTag() {
+
+        playerTag = new string[3];
+        playerTag[0] = "Player1";
+        playerTag[1] = "Player2";
+        playerTag[2] = "Player3";
+
+
+    }
+    
+   
     public void UpdateNetworkScore(int score)
     {
         PhotonNetwork.LocalPlayer.score = score;

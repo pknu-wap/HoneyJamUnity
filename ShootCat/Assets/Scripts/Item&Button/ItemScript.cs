@@ -68,7 +68,7 @@ public class ItemScript : MonoBehaviour
 
         Invoke("ButtonNormal", doubleTime);
         Invoke("CountSizeNormal", doubleTime);
-       
+
     }
     #endregion
 
@@ -91,14 +91,15 @@ public class ItemScript : MonoBehaviour
         CounterMethods.CounterPlus(count);
     }
 
-#endregion
+    #endregion
 
     #region PunRpc//네트워크 파트라 안봐도 되요 여긴
     [PunRPC]
-    public void _NetworkIce()
+    public void _NetworkIce(string targetID)
     {
-        Debug.Log(this.GetComponent<PhotonView>().ViewID);
-        ActiveIce();
+        if (!PhotonNetwork.LocalPlayer.ActorNumber.Equals(targetID))
+            ActiveIce();
+        Debug.Log(PhotonNetwork.LocalPlayer.UserId);
     }
     [PunRPC]
     public void _NetworkCrashBlock()
