@@ -10,7 +10,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     [Header("Login Panel")]
     public GameObject LoginPanel;
 
-public TMPro.TMP_InputField PlayerNameInput;
+    public TMPro.TMP_InputField PlayerNameInput;
 
     [Header("Selection Panel")]
     public GameObject SelectionPanel;
@@ -34,6 +34,7 @@ public TMPro.TMP_InputField PlayerNameInput;
     public GameObject InsideRoomPanel;
 
     public Button StartGameButton;
+
     public GameObject PlayerListEntryPrefab;
 
     private Dictionary<string, RoomInfo> cachedRoomList;
@@ -56,8 +57,8 @@ public TMPro.TMP_InputField PlayerNameInput;
     {
         if (PhotonNetwork.InLobby == true)
             Debug.Log("ddddd");
-           
-       
+
+
     }
     #endregion
 
@@ -114,6 +115,7 @@ public TMPro.TMP_InputField PlayerNameInput;
     public override void OnJoinedRoom()
     {
         SetActivePanel(InsideRoomPanel.name);
+        Debug.Log("온조인드룸");
 
         //if (playerListEntries == null)
         //{
@@ -227,7 +229,6 @@ public TMPro.TMP_InputField PlayerNameInput;
         RoomOptions options = new RoomOptions { MaxPlayers = 4 };
 
         PhotonNetwork.CreateRoom(roomName, options, null);
-        SceneManager.LoadScene("GamePlay");
     }
 
     public void OnJoinRandomRoomButtonClicked()
@@ -248,7 +249,7 @@ public TMPro.TMP_InputField PlayerNameInput;
         if (!playerName.Equals("") || playerName != null)
         {
             PhotonNetwork.LocalPlayer.NickName = playerName;
-       
+
 
         }
         else
@@ -271,14 +272,14 @@ public TMPro.TMP_InputField PlayerNameInput;
     }
 
 
-    
+
 
     public void OnStartGameButtonClicked()
     {
         //PhotonNetwork.CurrentRoom.IsOpen = false;
         //PhotonNetwork.CurrentRoom.IsVisible = false;
 
-        //PhotonNetwork.LoadLevel("DemoAsteroids-GameScene");
+        PhotonNetwork.LoadLevel("GamePlay");
     }
 
     #endregion
@@ -378,7 +379,7 @@ public TMPro.TMP_InputField PlayerNameInput;
     }
     void OnGUI()
     {
-        GUI.Label(new Rect(1000, 2000, 3000, 500),PhotonNetwork.NetworkClientState+"");
+        GUI.Label(new Rect(1000, 2000, 3000, 500), PhotonNetwork.NetworkClientState + "");
 
     }
 }
