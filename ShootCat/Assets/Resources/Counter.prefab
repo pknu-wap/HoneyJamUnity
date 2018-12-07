@@ -109,7 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d68d328cd0b73347a0842241b914b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yourCount: 0
+  gamePlayNetwork: {fileID: 0}
+  RakingBoardPanel: {fileID: 0}
   yourCountText: {fileID: 0}
   remainingCountText: {fileID: 0}
 --- !u!114 &114551384381804084

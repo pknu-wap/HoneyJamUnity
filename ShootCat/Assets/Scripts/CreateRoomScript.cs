@@ -32,7 +32,6 @@ public class CreateRoomScript : MonoBehaviour
     }
     void GotoGame() {
 
-        SceneManager.LoadScene("GamePlay");
 
     }
 }

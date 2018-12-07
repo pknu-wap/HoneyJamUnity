@@ -219,24 +219,24 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public void OnCreateRoomButtonClicked()
     {
-        string roomName = RoomNameInputField.text;
-        roomName = (roomName.Equals(string.Empty)) ? "Room " + Random.Range(1000, 10000) : roomName;
-
+        SetActivePanel(InsideRoomPanel.name);
+        Debug.Log("OnCreateRoomButtonClicked");
+        //string roomName = RoomNameInputField.text;
+        //roomName = (roomName.Equals(string.Empty)) ? "Room " + Random.Range(1000, 10000) : roomName;
+        
         //byte maxPlayers;
         //byte.TryParse(MaxPlayersInputField.text, out maxPlayers);
         //maxPlayers = (byte)Mathf.Clamp(maxPlayers, 2, 8);
 
         RoomOptions options = new RoomOptions { MaxPlayers = 4 };
 
-        PhotonNetwork.CreateRoom(roomName, options, null);
+        PhotonNetwork.CreateRoom("test", options, null);
     }
-
     public void OnJoinRandomRoomButtonClicked()
     {
-
+        SetActivePanel(InsideRoomPanel.name); 
         PhotonNetwork.JoinRandomRoom();
     }
-
     public void OnLeaveGameButtonClicked()
     {
         PhotonNetwork.LeaveRoom();
@@ -271,14 +271,10 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         }
     }
 
-
-
-
     public void OnStartGameButtonClicked()
     {
         //PhotonNetwork.CurrentRoom.IsOpen = false;
         //PhotonNetwork.CurrentRoom.IsVisible = false;
-
         PhotonNetwork.LoadLevel("GamePlay");
     }
 
@@ -327,12 +323,13 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     private void SetActivePanel(string activePanel)
     {
+        Debug.Log("SetActivePanel");
         //LoginPanel.SetActive(activePanel.Equals(LoginPanel.name));
         //SelectionPanel.SetActive(activePanel.Equals(SelectionPanel.name));
         //CreateRoomPanel.SetActive(activePanel.Equals(CreateRoomPanel.name));
         //JoinRandomRoomPanel.SetActive(activePanel.Equals(JoinRandomRoomPanel.name));
         RoomListPanel.SetActive(activePanel.Equals(RoomListPanel.name));    // UI should call OnRoomListButtonClicked() to activate this
-        //InsideRoomPanel.SetActive(activePanel.Equals(InsideRoomPanel.name));
+        InsideRoomPanel.SetActive(activePanel.Equals(InsideRoomPanel.name));
     }
 
     private void UpdateCachedRoomList(List<RoomInfo> roomList)

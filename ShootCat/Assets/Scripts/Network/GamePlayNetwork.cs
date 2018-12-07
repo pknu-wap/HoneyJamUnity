@@ -115,6 +115,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         Debug.Log(CounterView + "  " + CounterView.ViewID);
         CounterView.RPC("_UpdatePlayerScore", RpcTarget.Others);
     }
+    
 
     [PunRPC]
     void _UpdatePlayerScore()

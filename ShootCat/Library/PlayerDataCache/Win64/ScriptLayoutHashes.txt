@@ -272,7 +272,7 @@ bf9092984e391e854436c93547ae117f Sirenix.OdinInspector.Editor.dll:Sirenix.OdinIn
 3849a4a3724db50d34d964f17b47c09d Sirenix.OdinInspector.Editor.dll:Sirenix.Utilities.Editor.SerializationDebuggerWindow
 b16e5e1e34802bf1ae812605c0c3c017 Sirenix.OdinInspector.Editor.dll:Sirenix.OdinInspector.Editor.SirenixPreferencesWindow
 7f34213a8615975d7b80a9b291f35c72 Sirenix.OdinInspector.Editor.dll:Sirenix.OdinInspector.Editor.StaticInspectorWindow
-90b610cd5eec5e561071cf7a403fdfe9 Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.LobbyMainPanel
+df1675c659bfd6eb91a6e2d731403e15 Assembly-CSharp.dll:.LobbyMainPanel
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:TMPro.TMP_DigitValidator
 e53cc67d84060d628c7f03fc725766d8 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:Photon.Pun.Demo.Procedural.Cluster
@@ -319,6 +319,7 @@ d0606feb8b47c6fefec42c8c771d7ed7 Assembly-CSharp.dll:.ScoreHelper
 eecb33d470a38c348d83e958257b8134 Assembly-CSharp.dll:.ShowScore
 9c4eb4ec0fc11a711fdc1c8f1117255c Assembly-CSharp.dll:TMPro.Examples.Benchmark01_UGUI
 3477c69e0b15b8f129a31de36a9d17fb Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.IntInputField
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.GameManager
 fd1e15b01c6e8d9c3c753ad322216267 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.PhotonLagSimulationGui
 486cd95c82d8305219c352c06b776e1f PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.EventSystemSpawner
 1b19a590a02b791cf7c287970cfab801 Assembly-CSharp.dll:TMPro.Examples.SkewTextExample
