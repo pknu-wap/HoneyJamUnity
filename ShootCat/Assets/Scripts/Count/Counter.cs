@@ -16,6 +16,9 @@ public class Counter : MonoBehaviourPunCallbacks
 
     public Text remainingCountText; //카운터의 남은 수를 나타내는 텍스트
 
+
+
+
     public int RemaingCount
     {
         get { return remainingCount; }
@@ -23,6 +26,8 @@ public class Counter : MonoBehaviourPunCallbacks
         {
             if (remainingCount < 0) Debug.Log("카운터가 0 이하로 내려갈 일이 뭐가 있을까");
             this.remainingCount = value;
+
+
         }
     }
 
@@ -47,7 +52,7 @@ public class Counter : MonoBehaviourPunCallbacks
 
     public void UpdateRemainingCountText()
     {
-        remainingCountText.text = "Count : " + remainingCount;
+        remainingCountText.text = "Count\n" + remainingCount;
     }
 
     public void UpdateYourCountText()
