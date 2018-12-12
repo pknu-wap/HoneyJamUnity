@@ -6,29 +6,20 @@ using UnityEngine.UI;
 public class CounterMethods : MonoBehaviour
 {
 
-    [SerializeField] Counter counter;
+    [SerializeField]
+    private Counter counter;
+
     public GameObject block;
 
     void Awake()
     {
-        CounterInit();
+      
     }
 
     void Update()
     {
     }
-    [Range(0, 500)]
-    public int remainCountSize;
-
-    public void CounterInit()
-    {
-
-        counter.RemaingCount = remainCountSize;
-        counter.CountSize = 1;
-        counter.YourCount = 0;
-        counter.YourCountSize = 1;
-
-    }
+   
 
     public void CounterSub()
     { //카운터 빼기 함수

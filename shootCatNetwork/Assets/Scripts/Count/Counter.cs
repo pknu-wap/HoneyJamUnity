@@ -6,16 +6,22 @@ using Photon.Pun;
 using Photon.Realtime;
 public class Counter : MonoBehaviourPunCallbacks
 {
-
-    public GamePlayNetwork gamePlayNetwork;
+    public GameObject GamePlayNetwork;
+    GamePlayNetwork gamePlayNetwork;
     public GameObject RakingBoardPanel;
-    private int yourCount;//플레이어가 누른 카운터 
 
-    public Text yourCountText; //플레이어가 누른 카운터 수를 나타내는 텍스트
+    GameObject CounterPrefab;
+
+    private int yourCount;//플레이어가 누른 카운터 
 
     private int remainingCount;//카운터의 남은 수
 
-    public Text remainingCountText; //카운터의 남은 수를 나타내는 텍스트
+
+    [SerializeField]
+   private Text yourCountText; //플레이어가 누른 카운터 수를 나타내는 텍스트
+
+    [SerializeField]
+   private Text remainingCountText; //카운터의 남은 수를 나타내는 텍스트
 
     public int RemaingCount
     {
@@ -26,6 +32,18 @@ public class Counter : MonoBehaviourPunCallbacks
                 GameOver();
             this.remainingCount = value;
         }
+    }
+    [Range(0, 500)]
+    public int remainCountSize;
+
+    public void CounterInit()
+    {
+
+        RemaingCount = remainCountSize;
+        CountSize = 1;
+        YourCount = 0;
+        YourCountSize = 1;
+
     }
 
     public int CountSize { get; set; } //카운터 가감 양(기본 1 , 아이템 따라 다름)
@@ -42,13 +60,21 @@ public class Counter : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        
+        gamePlayNetwork =GamePlayNetwork.GetComponent<GamePlayNetwork>();
+        CounterPrefab = GameObject.FindWithTag("Counter");
+        Debug.Log(CounterPrefab);
+        Debug.Log(CounterPrefab.transform.GetChild(0));
+        yourCountText = CounterPrefab.transform.GetChild(0).GetComponent<Text>();
+        remainingCountText = CounterPrefab.transform.GetChild(1).GetComponent<Text>();
+        CounterInit();
         UpdateRemainingCountText();
         UpdateYourCountText();
     }
 
     void Update()
     {
-
+     
     }
 
     public void UpdateRemainingCountText()
