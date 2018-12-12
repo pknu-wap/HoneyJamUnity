@@ -117,7 +117,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     public void UpdatePlayerScore()//CrashBlock 아이템 적용
     {
         //ItemView.ViewID = ItemViewID;
-        //Debug.Log(CounterView + "  " + CounterView.ViewID);
+        Debug.Log(CounterView + "  " + CounterView.ViewID);
         CounterView.RPC("_UpdatePlayerScore", RpcTarget.Others);
     }
     
@@ -152,6 +152,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     void Awake()
     {
         Screen.SetResolution(1080 / 5, 1920 / 5, false);
+
          if (PhotonNetwork.IsMasterClient)
         {
             CounterViewInst();
@@ -160,12 +161,13 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     }
 
 
-
-    void Start()
+    void Start(
+)
     {
         SetTag();
-        CounterScript = CounterPrefab.GetComponent<Counter>();
+        CounterScript = CounterPanel.GetComponent<Counter>();
         CounterView = CounterPrefab.GetComponent<PhotonView>();
+   
         ItemView = ItemPrefab.GetComponent<PhotonView>();
       
         playerInfo = new PlayerInfo[4];
@@ -173,6 +175,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
 
     
     }
+    
     #endregion
     public void SetTag() {
 

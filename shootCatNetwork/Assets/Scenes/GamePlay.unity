@@ -6330,10 +6330,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GamePlayNetwork: {fileID: 2004991076}
-  RakingBoardPanel: {fileID: 0}
+  RakingBoardPanel: {fileID: 1400289595}
   yourCountText: {fileID: 0}
   remainingCountText: {fileID: 0}
-  remainCountSize: 0
+  remainCountSize: 42
 --- !u!1 &1720218628
 GameObject:
   m_ObjectHideFlags: 0

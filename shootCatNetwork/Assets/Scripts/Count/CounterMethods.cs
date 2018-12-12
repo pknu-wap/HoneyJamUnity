@@ -7,22 +7,28 @@ public class CounterMethods : MonoBehaviour
 {
 
     [SerializeField]
-    private Counter counter;
-
+    Counter counter;
+    public GameObject CounterPanel;
     public GameObject block;
 
     void Awake()
     {
       
     }
+    void Start() {
 
+        counter = CounterPanel.GetComponent<Counter>();
+
+    }
     void Update()
     {
+        
     }
    
 
     public void CounterSub()
     { //카운터 빼기 함수
+        
         counter.RemaingCount -= counter.CountSize;
         counter.UpdateRemainingCountText();
     }
@@ -51,6 +57,8 @@ public class CounterMethods : MonoBehaviour
     }
     public void YourCountPlus()
     {
+        Debug.Log(counter.YourCount);
+        Debug.Log(counter.YourCountSize);
         counter.YourCount += counter.YourCountSize; //버튼 누르면 이 함수를 호출 시켜서 더해줌
         counter.UpdateYourCountText();
     }

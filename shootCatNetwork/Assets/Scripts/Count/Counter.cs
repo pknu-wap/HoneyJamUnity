@@ -57,7 +57,10 @@ public class Counter : MonoBehaviourPunCallbacks
     } //플레이어가 지금까지 누른 수
 
     public int YourCountSize { get; set; } //플레이어 지금까지 누른 수에 가감할 양(기본 1, 아이템 적용에 따라 다름)
+    void Update() {
 
+      
+    }
     void Start()
     {
         
@@ -72,10 +75,7 @@ public class Counter : MonoBehaviourPunCallbacks
         UpdateYourCountText();
     }
 
-    void Update()
-    {
-     
-    }
+    
 
     public void UpdateRemainingCountText()
     {
