@@ -10,6 +10,9 @@ TagManager:
   - 3
   - 4
   - 5
+  - Network
+  - CounterUI
+  - CounterMethods
   layers:
   - Default
   - TransparentFX

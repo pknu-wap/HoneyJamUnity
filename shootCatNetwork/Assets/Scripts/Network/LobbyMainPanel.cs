@@ -37,7 +37,7 @@ namespace Photon.Pun.Demo.Asteroids
         public Button StartGameButton;
         public GameObject PlayerListEntryPrefab;
 
-        private Dictionary<string, RoomInfo> cachedRoomList;
+        private Dictionary<string, Realtime.RoomInfo> cachedRoomList;
         private Dictionary<string, GameObject> roomListEntries;
         private Dictionary<int, GameObject> playerListEntries;
 
@@ -45,9 +45,10 @@ namespace Photon.Pun.Demo.Asteroids
 
         public void Awake()
         {
+            Screen.SetResolution(1080 / 5, 1920 / 5, false);
             PhotonNetwork.AutomaticallySyncScene = true;
 
-            cachedRoomList = new Dictionary<string, RoomInfo>();
+            cachedRoomList = new Dictionary<string, Realtime.RoomInfo>();
             roomListEntries = new Dictionary<string, GameObject>();
             
             PlayerNameInput.text = "Player " + Random.Range(1000, 10000);
@@ -62,7 +63,7 @@ namespace Photon.Pun.Demo.Asteroids
             this.SetActivePanel(SelectionPanel.name);
         }
 
-        public override void OnRoomListUpdate(List<RoomInfo> roomList)
+        public override void OnRoomListUpdate(List<Realtime.RoomInfo> roomList)
         {
             ClearRoomListView();
 
@@ -113,7 +114,7 @@ namespace Photon.Pun.Demo.Asteroids
                 entry.GetComponent<PlayerListEntry>().Initialize(p.ActorNumber, p.NickName);
 
                 object isPlayerReady;
-                if (p.CustomProperties.TryGetValue(AsteroidsGame.PLAYER_READY, out isPlayerReady))
+                if (p.CustomProperties.TryGetValue(GameRoomInfo.PLAYER_READY, out isPlayerReady))
                 {
                     entry.GetComponent<PlayerListEntry>().SetPlayerReady((bool) isPlayerReady);
                 }
@@ -125,7 +126,7 @@ namespace Photon.Pun.Demo.Asteroids
 
             Hashtable props = new Hashtable
             {
-                {AsteroidsGame.PLAYER_LOADED_LEVEL, false}
+                {GameRoomInfo.PLAYER_LOADED_LEVEL, false}
             };
             PhotonNetwork.LocalPlayer.SetCustomProperties(props);
         }
@@ -185,7 +186,7 @@ namespace Photon.Pun.Demo.Asteroids
             if (playerListEntries.TryGetValue(targetPlayer.ActorNumber, out entry))
             {
                 object isPlayerReady;
-                if (changedProps.TryGetValue(AsteroidsGame.PLAYER_READY, out isPlayerReady))
+                if (changedProps.TryGetValue(GameRoomInfo.PLAYER_READY, out isPlayerReady))
                 {
                     entry.GetComponent<PlayerListEntry>().SetPlayerReady((bool) isPlayerReady);
                 }
@@ -279,7 +280,7 @@ namespace Photon.Pun.Demo.Asteroids
             foreach (Player p in PhotonNetwork.PlayerList)
             {
                 object isPlayerReady;
-                if (p.CustomProperties.TryGetValue(AsteroidsGame.PLAYER_READY, out isPlayerReady))
+                if (p.CustomProperties.TryGetValue(GameRoomInfo.PLAYER_READY, out isPlayerReady))
                 {
                     if (!(bool) isPlayerReady)
                     {
@@ -320,9 +321,9 @@ namespace Photon.Pun.Demo.Asteroids
             InsideRoomPanel.SetActive(activePanel.Equals(InsideRoomPanel.name));
         }
 
-        private void UpdateCachedRoomList(List<RoomInfo> roomList)
+        private void UpdateCachedRoomList(List<Realtime.RoomInfo> roomList)
         {
-            foreach (RoomInfo info in roomList)
+            foreach (Realtime.RoomInfo info in roomList)
             {
                 // Remove room from cached room list if it got closed, became invisible or was marked as removed
                 if (!info.IsOpen || !info.IsVisible || info.RemovedFromList)
@@ -351,7 +352,7 @@ namespace Photon.Pun.Demo.Asteroids
         private void UpdateRoomListView()
         {
             Debug.Log("실행중 룸리스트업데이트");
-            foreach (RoomInfo info in cachedRoomList.Values)
+            foreach (Realtime.RoomInfo info in cachedRoomList.Values)
             {
                 Debug.Log("외왆되??");
                 GameObject entry = Instantiate(RoomListEntryPrefab);

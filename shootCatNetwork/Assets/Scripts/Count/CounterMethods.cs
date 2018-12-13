@@ -2,41 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*이 스크립트에서 카운터 안에 있는 숫자들 텍스트로 나타내고 덧셈 뺼샘등의 메소드를 관리한다*/
 public class CounterMethods : MonoBehaviour
 {
+    GameObject CounterPrefab;
+    Counter counter;
+    [SerializeField]
+    private Text yourCountText; //플레이어가 누른 카운터 수를 나타내는 텍스트
 
     [SerializeField]
-    Counter counter;
-    public GameObject CounterPanel;
+    private Text remainingCountText; //카운터의 남은 수를 나타내는 텍스트
+  
+
     public GameObject block;
 
     void Awake()
     {
-      
-    }
-    void Start() {
 
-        counter = CounterPanel.GetComponent<Counter>();
+    }
+    void Start()
+    {
+
+      
 
     }
     void Update()
     {
-        
+
     }
-   
+    public void InitPrefab()
+    {
+        CounterPrefab = GameObject.FindWithTag("Counter");
+        counter = CounterPrefab.GetComponent<Counter>();
+    }
 
     public void CounterSub()
     { //카운터 빼기 함수
-        
+      
         counter.RemaingCount -= counter.CountSize;
-        counter.UpdateRemainingCountText();
+
     }
 
     public void CounterPlus(int plusSize)
     { //카운터 더하기 함수
         counter.RemaingCount += plusSize;
-        counter.UpdateRemainingCountText();
+
     }
 
     public void DoubleCount()//카운트 두배 함수
@@ -55,11 +65,18 @@ public class CounterMethods : MonoBehaviour
         counter.CountSize = 1;
 
     }
-    public void YourCountPlus()
-    {
-        Debug.Log(counter.YourCount);
-        Debug.Log(counter.YourCountSize);
+    public void YourCountPlus() { 
+    
         counter.YourCount += counter.YourCountSize; //버튼 누르면 이 함수를 호출 시켜서 더해줌
-        counter.UpdateYourCountText();
+
+    }
+    public void UpdateRemainingCountText()
+    {
+        remainingCountText.text = "Count : " + counter.RemaingCount;
+    }
+
+    public void UpdateYourCountText()
+    {
+        yourCountText.text = " 내 카운트 횟수는" + counter.YourCount + "입니다";
     }
 }

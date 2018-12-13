@@ -10,10 +10,10 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     public GameObject CounterPrefab;
     public GameObject ItemPrefab;
     public DragHandler dragHandler;
-    public GameObject CounterPanel;
-     Counter CounterScript;
+    Counter counter;
     PhotonView ItemView;
     #endregion
+
     PlayerInfo[] playerInfo;
     List<PlayerInfo> PlayerInfos = new List<PlayerInfo>();
     List<string> TagList = new List<string>();
@@ -21,10 +21,10 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     public TMPro.TextMeshProUGUI[] PlayerNickname;
     public TMPro.TextMeshProUGUI[] PlayerScore;
     public GameObject[] PlayerCat;
+    GameObject CounterViewPrefab;
 
     #region ViewInstantiate
 
-    [SerializeField]
     void CounterViewInst()
     {
         if (CounterPrefab == null)
@@ -33,11 +33,10 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         }
         else
         {
-     
-            GameObject CounterView = PhotonNetwork.Instantiate("CounterPhotonView", new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
-            CounterView.transform.SetParent(CounterPanel.transform);
-            CounterView.transform.localPosition = Vector3.zero;
-            CounterView.transform.localScale = Vector3.one;
+             CounterViewPrefab = PhotonNetwork.Instantiate("CounterPhotonView", new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+            counter = CounterViewPrefab.GetComponent<Counter>();
+         
+            CounterView = CounterViewPrefab.GetComponent<PhotonView>();
         }
         
     }
@@ -79,14 +78,16 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     #region RPCs
     public void UpdateCount()//다른 플레이어 카운트 숫자 동기화
     {
-
         int getCount = 0;
-        if (CounterView.IsMine)
-        {
-            getCount = CounterScript.RemaingCount;
+        
 
-            CounterView.RPC("_UpdateCount", RpcTarget.AllBuffered, getCount);
-        }
+        getCount = counter.RemaingCount;
+        Debug.Log("CounterView: " + CounterView + "GetCount" + getCount);
+        CounterView.RPC("_UpdateCount", RpcTarget.Others, getCount);
+
+           
+      
+     
     }
     public void NetworkIce()//Ice 아이템 적용
     {
@@ -114,7 +115,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         Debug.Log(ItemView + "  " + ItemView.ViewID);
         ItemView.RPC("_NetworkDoubleCount", RpcTarget.Others);
     }
-    public void UpdatePlayerScore()//CrashBlock 아이템 적용
+    public void UpdatePlayerScore()
     {
         //ItemView.ViewID = ItemViewID;
         Debug.Log(CounterView + "  " + CounterView.ViewID);
@@ -152,22 +153,18 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     void Awake()
     {
         Screen.SetResolution(1080 / 5, 1920 / 5, false);
-
-         if (PhotonNetwork.IsMasterClient)
-        {
-            CounterViewInst();
-            ItemViewInst();
-        }
+     
     }
 
 
     void Start(
 )
     {
+        CounterViewInst();
+        ItemViewInst();
         SetTag();
-        CounterScript = CounterPanel.GetComponent<Counter>();
-        CounterView = CounterPrefab.GetComponent<PhotonView>();
-   
+
+
         ItemView = ItemPrefab.GetComponent<PhotonView>();
       
         playerInfo = new PlayerInfo[4];
@@ -175,7 +172,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
 
     
     }
-    
+
     #endregion
     public void SetTag() {
 
