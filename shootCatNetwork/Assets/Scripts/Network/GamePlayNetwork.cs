@@ -10,6 +10,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     public GameObject CounterPrefab;
     public GameObject ItemPrefab;
     public DragHandler dragHandler;
+    [SerializeField]
     Counter counter;
     PhotonView ItemView;
     #endregion
@@ -79,15 +80,21 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     public void UpdateCount()//다른 플레이어 카운트 숫자 동기화
     {
         int getCount = 0;
-        
+        if (CounterView.IsMine)
+        {
+            getCount = counter.RemaingCount;
 
-        getCount = counter.RemaingCount;
-        Debug.Log("CounterView: " + CounterView + "GetCount" + getCount);
-        CounterView.RPC("_UpdateCount", RpcTarget.Others, getCount);
+            CounterView.RPC("_UpdateCount", RpcTarget.AllViaServer, getCount);
+        }
 
-           
-      
-     
+
+    }
+    public void UpdatePlayerScore()
+    {
+        //ItemView.ViewID = ItemViewID;
+        Debug.Log("아니 왜 점수 오르는게 안되냐고 왜 대체");
+
+        CounterView.RPC("_UpdatePlayerScore", RpcTarget.All);
     }
     public void NetworkIce()//Ice 아이템 적용
     {
@@ -98,7 +105,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
 
     public void NetworkCrashBlock()//CrashBlock 아이템 적용
     {
-        //ItemView.ViewID = ItemViewID;
+        //ItemView.ViewID = ItemViewID;WWWWW
         Debug.Log(ItemView + "  " + ItemView.ViewID);
         ItemView.RPC("_NetworkCrashBlock", RpcTarget.Others);
     }
@@ -115,30 +122,16 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         Debug.Log(ItemView + "  " + ItemView.ViewID);
         ItemView.RPC("_NetworkDoubleCount", RpcTarget.Others);
     }
-    public void UpdatePlayerScore()
-    {
-        //ItemView.ViewID = ItemViewID;
-        Debug.Log(CounterView + "  " + CounterView.ViewID);
-        CounterView.RPC("_UpdatePlayerScore", RpcTarget.Others);
-    }
     
 
-    [PunRPC]
-    void _UpdatePlayerScore()
-    {
-        int i = 0;
-        foreach (Player p in PhotonNetwork.PlayerList)
-        {
-            PlayerScore[i].text = p.score + "";
-            i++;
-        }
-        i = 0;
-    }
+
+   
     public void _UpdatePlayerScore1()
     {
         int i = 0;
         foreach (Player p in PhotonNetwork.PlayerList)
         {
+            Debug.Log(PlayerScore[i].text);
             PlayerScore[i].text = p.score + "";
             i++;
         }

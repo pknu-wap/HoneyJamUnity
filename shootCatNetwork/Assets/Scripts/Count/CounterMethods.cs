@@ -65,10 +65,10 @@ public class CounterMethods : MonoBehaviour
         counter.CountSize = 1;
 
     }
-    public void YourCountPlus() { 
-    
+    public void YourCountPlus() {
+        counter.UpdateLocalPlayerScore();
         counter.YourCount += counter.YourCountSize; //버튼 누르면 이 함수를 호출 시켜서 더해줌
-
+     
     }
     public void UpdateRemainingCountText()
     {
