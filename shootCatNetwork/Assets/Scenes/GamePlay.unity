@@ -620,14 +620,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114836416793633462, guid: 0bb11f8a38f202146b1456172dfd0a7c,
+    - target: {fileID: 114366895169470538, guid: 0bb11f8a38f202146b1456172dfd0a7c,
         type: 2}
       propertyPath: viewIdField
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114648672930883272, guid: 0bb11f8a38f202146b1456172dfd0a7c, type: 2}
-    - {fileID: 114836416793633462, guid: 0bb11f8a38f202146b1456172dfd0a7c, type: 2}
+    - target: {fileID: 1248428177346138, guid: 0bb11f8a38f202146b1456172dfd0a7c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bb11f8a38f202146b1456172dfd0a7c, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &135389725 stripped
@@ -640,27 +642,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224659737889117938, guid: 0bb11f8a38f202146b1456172dfd0a7c,
     type: 2}
   m_PrefabInternal: {fileID: 135389724}
---- !u!114 &135389727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 135389725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 0
-  OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
-  viewIdField: 2
-  InstantiationId: 2
-  isRuntimeInstantiated: 0
 --- !u!1 &156951551
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,17 +3418,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 2004991077}
-          m_MethodName: UpdateCount
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
@@ -5288,9 +5258,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1595522573}
-  - component: {fileID: 1595522574}
   - component: {fileID: 1595522575}
   - component: {fileID: 1595522576}
+  - component: {fileID: 1595522577}
   m_Layer: 5
   m_Name: CounterUI
   m_TagString: CounterMethods
@@ -5319,17 +5289,6 @@ RectTransform:
   m_AnchoredPosition: {x: 4, y: 104}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1595522574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1595522572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad44859254c1c37459e82daff0b2a0ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &1595522575
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5348,9 +5307,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6336d4c06f65043bb33e10bdb78e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CounterPrefab: {fileID: 0}
+  counter: {fileID: 1595522577}
   yourCountText: {fileID: 1720218630}
   remainingCountText: {fileID: 1325572768}
   block: {fileID: 0}
+--- !u!114 &1595522577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1595522572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d68d328cd0b73347a0842241b914b46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  remainingCount: 0
+  remainCountSize: 80
+  yourCount: 0
 --- !u!1 &1720218628
 GameObject:
   m_ObjectHideFlags: 0
@@ -5502,6 +5477,7 @@ GameObject:
   - component: {fileID: 1809703425}
   - component: {fileID: 1809703423}
   - component: {fileID: 1809703422}
+  - component: {fileID: 1809703426}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5582,6 +5558,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 0}
   Countdown: 5
+--- !u!114 &1809703426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1809703421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b886771afec52542ad2350409fa47b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleKey: 97
+  openOnStart: 0
+  shakeToOpen: 1
+  shakeAcceleration: 3
+  restrictLogCount: 0
+  maxLogCount: 1000
 --- !u!1 &1825841686
 GameObject:
   m_ObjectHideFlags: 0

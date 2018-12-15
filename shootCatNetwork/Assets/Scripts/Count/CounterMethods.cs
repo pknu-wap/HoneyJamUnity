@@ -1,50 +1,42 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 /*이 스크립트에서 카운터 안에 있는 숫자들 텍스트로 나타내고 덧셈 뺼샘등의 메소드를 관리한다*/
 public class CounterMethods : MonoBehaviour
 {
+    [SerializeField]
     GameObject CounterPrefab;
-    Counter counter;
-    [SerializeField]
-    private Text yourCountText; //플레이어가 누른 카운터 수를 나타내는 텍스트
+    public  Counter counter;
 
-    [SerializeField]
-    private Text remainingCountText; //카운터의 남은 수를 나타내는 텍스트
+    public Text yourCountText; //플레이어가 누른 카운터 수를 나타내는 텍스트
+
+    public Text remainingCountText; //카운터의 남은 수를 나타내는 텍스트
   
-
     public GameObject block;
-
-    void Awake()
+    public void UpdateSendCount()
     {
-
+       if( CounterPrefab.GetComponent<PhotonView>().IsMine)
+            CounterPrefab.GetComponent<CounterPhotonView>().networkCurrentCount = counter.RemaingCount;
+        
     }
-    void Start()
-    {
-
-      
-
-    }
-    void Update()
-    {
-
-    }
-    public void InitPrefab()
-    {
-        CounterPrefab = GameObject.FindWithTag("Counter");
-        counter = CounterPrefab.GetComponent<Counter>();
+    void Start() {
+   
     }
 
+    public void Init() {
+        CounterPrefab = GameObject.FindWithTag("CounterPhotonView");
+    }
     public void CounterSub()
-    { //카운터 빼기 함수
-      
+    { 
         counter.RemaingCount -= counter.CountSize;
-
+        UpdateSendCount();
+     
     }
 
     public void CounterPlus(int plusSize)
-    { //카운터 더하기 함수
+    { 
         counter.RemaingCount += plusSize;
 
     }
@@ -66,7 +58,7 @@ public class CounterMethods : MonoBehaviour
 
     }
     public void YourCountPlus() {
-        counter.UpdateLocalPlayerScore();
+       
         counter.YourCount += counter.YourCountSize; //버튼 누르면 이 함수를 호출 시켜서 더해줌
      
     }

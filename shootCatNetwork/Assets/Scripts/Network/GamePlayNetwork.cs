@@ -77,18 +77,18 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     }
   
     #region RPCs
-    public void UpdateCount()//다른 플레이어 카운트 숫자 동기화
-    {
-        int getCount = 0;
-        if (CounterView.IsMine)
-        {
-            getCount = counter.RemaingCount;
+    //public void UpdateCount()//다른 플레이어 카운트 숫자 동기화
+    //{
+    //    int getCount = 0;
+    //    if (CounterView.IsMine)
+    //    {
+    //        getCount = counter.RemaingCount;
 
-            CounterView.RPC("_UpdateCount", RpcTarget.AllViaServer, getCount);
-        }
+    //        CounterView.RPC("_UpdateCount", RpcTarget.AllViaServer, getCount);
+    //    }
 
 
-    }
+    //}
     public void UpdatePlayerScore()
     {
         //ItemView.ViewID = ItemViewID;
@@ -145,7 +145,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     #region Behaviour
     void Awake()
     {
-        Screen.SetResolution(1080 / 5, 1920 / 5, false);
+        //Screen.SetResolution(1080 / 5, 1920 / 5, false);
      
     }
 

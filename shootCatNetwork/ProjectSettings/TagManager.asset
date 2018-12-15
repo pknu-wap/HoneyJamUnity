@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Counter
   - 1
   - 2
   - 3
@@ -13,6 +12,7 @@ TagManager:
   - Network
   - CounterUI
   - CounterMethods
+  - CounterPhotonView
   layers:
   - Default
   - TransparentFX
