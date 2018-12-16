@@ -93,34 +93,7 @@ public class ItemScript : MonoBehaviour
 
     #endregion
 
-    #region PunRpc//네트워크 파트라 안봐도 되요 여긴
-    [PunRPC]
-    public void _NetworkIce(string targetID)
-    {
-        if (!PhotonNetwork.LocalPlayer.ActorNumber.Equals(targetID))
-            ActiveIce();
-        Debug.Log(PhotonNetwork.LocalPlayer.UserId);
-    }
-    [PunRPC]
-    public void _NetworkCrashBlock()
-    {
-        Debug.Log(this.GetComponent<PhotonView>().ViewID);
-        ActiveCrashBlock();
-    }
-
-    [PunRPC]
-    public void _NetworkCountPump()
-    {
-        Debug.Log(this.GetComponent<PhotonView>().ViewID);
-        ActiveCounterPump();
-    }
-    [PunRPC]
-    public void NetworkDoubleCount()
-    {
-        Debug.Log(this.GetComponent<PhotonView>().ViewID);
-        ActiveDoubleCount();
-    }
-    #endregion
+   
 
 }
 

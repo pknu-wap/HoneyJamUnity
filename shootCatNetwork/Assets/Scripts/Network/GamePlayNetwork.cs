@@ -10,11 +10,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     public GameObject CounterPrefab;
     public GameObject ItemPrefab;
     public DragHandler dragHandler;
-    [SerializeField]
-    Counter counter;
     PhotonView ItemView;
-    #endregion
-
     PlayerInfo[] playerInfo;
     List<PlayerInfo> PlayerInfos = new List<PlayerInfo>();
     List<string> TagList = new List<string>();
@@ -23,6 +19,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     public TMPro.TextMeshProUGUI[] PlayerScore;
     public GameObject[] PlayerCat;
     GameObject CounterViewPrefab;
+    #endregion
 
     #region ViewInstantiate
 
@@ -35,8 +32,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         else
         {
              CounterViewPrefab = PhotonNetwork.Instantiate("CounterPhotonView", new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
-            counter = CounterViewPrefab.GetComponent<Counter>();
-         
+        
             CounterView = CounterViewPrefab.GetComponent<PhotonView>();
         }
         
@@ -77,18 +73,6 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     }
   
     #region RPCs
-    //public void UpdateCount()//다른 플레이어 카운트 숫자 동기화
-    //{
-    //    int getCount = 0;
-    //    if (CounterView.IsMine)
-    //    {
-    //        getCount = counter.RemaingCount;
-
-    //        CounterView.RPC("_UpdateCount", RpcTarget.AllViaServer, getCount);
-    //    }
-
-
-    //}
     public void UpdatePlayerScore()
     {
         //ItemView.ViewID = ItemViewID;
@@ -98,24 +82,16 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     }
     public void NetworkIce()//Ice 아이템 적용
     {
-        //ItemView.ViewID = ItemViewID;
         Debug.Log(ItemView + "  " + ItemView.ViewID);
         ItemView.RPC("_NetworkIce", RpcTarget.Others, dragHandler.target);
     }
 
     public void NetworkCrashBlock()//CrashBlock 아이템 적용
     {
-        //ItemView.ViewID = ItemViewID;WWWWW
         Debug.Log(ItemView + "  " + ItemView.ViewID);
         ItemView.RPC("_NetworkCrashBlock", RpcTarget.Others);
     }
-
-    public void NetworkCountPump()//CrashBlock 아이템 적용
-    {
-        //ItemView.ViewID = ItemViewID;
-        Debug.Log(ItemView + "  " + ItemView.ViewID); 
-        ItemView.RPC("_NetworkCountPump", RpcTarget.Others);
-    }
+   
     public void NetworkDoubleCount()//CrashBlock 아이템 적용
     {
         //ItemView.ViewID = ItemViewID;

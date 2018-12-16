@@ -38,7 +38,7 @@ public class CounterMethods : MonoBehaviour
     public void CounterPlus(int plusSize)
     { 
         counter.RemaingCount += plusSize;
-
+        UpdateSendCount();
     }
 
     public void DoubleCount()//카운트 두배 함수

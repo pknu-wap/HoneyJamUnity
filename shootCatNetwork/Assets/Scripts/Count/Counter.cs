@@ -19,7 +19,6 @@ public class Counter : MonoBehaviourPunCallbacks
         set
         {
             this.remainingCount = value;
-            Debug.Log("value:" + value);
             if (remainingCount < 0)
                 GameOver();
             if (isStart)
@@ -33,7 +32,6 @@ public class Counter : MonoBehaviourPunCallbacks
         get { return yourCount; }
         set
         {
-            Debug.Log("yourcount프로퍼티 변경중");
             this.yourCount = value;
             if (isStart)
                 CounterUI.GetComponent<CounterMethods>().UpdateYourCountText();

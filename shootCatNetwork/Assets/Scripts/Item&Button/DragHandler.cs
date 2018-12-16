@@ -8,19 +8,10 @@ using UnityEngine.EventSystems;
 public class DragHandler : MonoBehaviourPunCallbacks, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public static GameObject beingDragged;
-    enum Target { none, player1, player2, player3 };
     public string target;
-    Vector3 startPos = new Vector3(-400, -100, 10);
-    #region Unity
-    void Start()
-    {
-
-    }
-    void Update()
-    {
-        //positionCheck();
-    }
-    #endregion
+    Vector3 startPos = new Vector3(-400, -375, 10);
+    
+   
 
     #region DragEvent
     public void OnBeginDrag(PointerEventData eventData)
@@ -34,10 +25,12 @@ public class DragHandler : MonoBehaviourPunCallbacks, IBeginDragHandler, IDragHa
     public void OnEndDrag(PointerEventData eventData)
     {
         if (target == "")
-            gameObject.transform.position = startPos;
+            gameObject.GetComponent<RectTransform>().localPosition = startPos;
+       
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.GetComponent<RectTransform>().localPosition = startPos;
             Debug.Log("Destroy!!!");
         }
         beingDragged = null;
