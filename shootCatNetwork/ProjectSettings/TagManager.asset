@@ -4,15 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
   - Network
   - CounterUI
   - CounterMethods
   - CounterPhotonView
+  - Player1
+  - Player2
+  - Player3
   layers:
   - Default
   - TransparentFX

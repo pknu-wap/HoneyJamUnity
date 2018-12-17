@@ -5448,22 +5448,22 @@ Prefab:
     - target: {fileID: 224181555028434250, guid: 332e28ec9d31e7142b21ca0a30f43054,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -315
+      value: -462.7
       objectReference: {fileID: 0}
     - target: {fileID: 224181555028434250, guid: 332e28ec9d31e7142b21ca0a30f43054,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -348
+      value: -372.8
       objectReference: {fileID: 0}
     - target: {fileID: 224181555028434250, guid: 332e28ec9d31e7142b21ca0a30f43054,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 868.9
+      value: 573.5
       objectReference: {fileID: 0}
     - target: {fileID: 224181555028434250, guid: 332e28ec9d31e7142b21ca0a30f43054,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 893.4
+      value: 843.8
       objectReference: {fileID: 0}
     - target: {fileID: 224181555028434250, guid: 332e28ec9d31e7142b21ca0a30f43054,
         type: 2}
@@ -5499,11 +5499,16 @@ Prefab:
         type: 2}
       propertyPath: pushBtnEventTrigger
       value: 
-      objectReference: {fileID: 1119282945}
+      objectReference: {fileID: 0}
     - target: {fileID: 114251418992015296, guid: 332e28ec9d31e7142b21ca0a30f43054,
         type: 2}
       propertyPath: isBlock
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114251418992015296, guid: 332e28ec9d31e7142b21ca0a30f43054,
+        type: 2}
+      propertyPath: remainBlockCountInit
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 332e28ec9d31e7142b21ca0a30f43054, type: 2}

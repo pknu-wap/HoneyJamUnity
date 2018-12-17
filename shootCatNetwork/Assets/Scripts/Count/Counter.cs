@@ -34,10 +34,14 @@ public class Counter : MonoBehaviourPunCallbacks
         {
             this.yourCount = value;
             if (isStart)
+            {
+                CounterUI.GetComponent<CounterMethods>().UpdateSendScore();
                 CounterUI.GetComponent<CounterMethods>().UpdateYourCountText();
+                CounterUI.GetComponent<CounterMethods>().UpdateLocalScoreText();
+            }
         }
     }
-    
+
     [Range(0, 500)]
     public int remainCountSize;
     public void CounterInit()
@@ -52,22 +56,16 @@ public class Counter : MonoBehaviourPunCallbacks
     [SerializeField]
     private int yourCount;//플레이어가 지금까지 누른 수
 
-   
+
 
     public int YourCountSize { get; set; } //플레이어 지금까지 누른 수에 가감할 양(기본 1, 아이템 적용에 따라 다름)
 
-
-    void Update()
-    {
-
-
-    }
     void Start()
     {
-       
+
         GamePlayNetwork = GameObject.FindWithTag("Network");
         CounterUI = GameObject.FindWithTag("CounterMethods");
-  
+
         CounterInit();
 
         isStart = true;

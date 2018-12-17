@@ -12,7 +12,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     public DragHandler dragHandler;
     PhotonView ItemView;
     PlayerInfo[] playerInfo;
-    List<PlayerInfo> PlayerInfos = new List<PlayerInfo>();
+    public List<PlayerInfo> PlayerInfos = new List<PlayerInfo>();
     List<string> TagList = new List<string>();
     string[] playerTag;
     public TMPro.TextMeshProUGUI[] PlayerNickname;
@@ -31,11 +31,11 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         }
         else
         {
-             CounterViewPrefab = PhotonNetwork.Instantiate("CounterPhotonView", new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
-        
+            CounterViewPrefab = PhotonNetwork.Instantiate("CounterPhotonView", new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+
             CounterView = CounterViewPrefab.GetComponent<PhotonView>();
         }
-        
+
     }
 
     [SerializeField]
@@ -52,26 +52,40 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     }
     #endregion
 
-   
-    void PlayerInfoSet() {
+    #region PlayerSet & Info
+    void PlayerInfoSet()
+    {
 
-        
-        int i = 0;
-        int j = 0;
         foreach (Player p in PhotonNetwork.PlayerList)
         {
-            Debug.Log("i : " +i +" player : "+p.ActorNumber);
-            if (p.UserId != PhotonNetwork.LocalPlayer.UserId)
-                PlayerCat[j].tag = p.ActorNumber+"";
-            PlayerNickname[i].text = p.NickName;
-            PlayerScore[i].text = p.score+"";
+            PlayerInfos.Add(new PlayerInfo(p));
+
+        }
+        int i = 0;
+        foreach (PlayerInfo p in PlayerInfos)
+        {
+            if (!p.isLocal)
+            {
+                PlayerCat[i].tag = playerTag[i];
+                p.tag = playerTag[i];
+                p.PlayerCat = PlayerCat[i];
+            }
+            p.playerNicknameText = PlayerNickname[i];
+            p.SetNickname();
+            p.scoreText = PlayerScore[i];
             i++;
         }
         i = 0;
-        j = 0;
-
     }
-  
+    public void SetTag()
+    {
+        playerTag = new string[3];
+        playerTag[0] = "Player1";
+        playerTag[1] = "Player2";
+        playerTag[2] = "Player3";
+    }
+
+    #endregion
     #region RPCs
     public void UpdatePlayerScore()
     {
@@ -91,17 +105,17 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         Debug.Log(ItemView + "  " + ItemView.ViewID);
         ItemView.RPC("_NetworkCrashBlock", RpcTarget.Others);
     }
-   
+
     public void NetworkDoubleCount()//CrashBlock 아이템 적용
     {
         //ItemView.ViewID = ItemViewID;
         Debug.Log(ItemView + "  " + ItemView.ViewID);
         ItemView.RPC("_NetworkDoubleCount", RpcTarget.Others);
     }
-    
 
 
-   
+
+
     public void _UpdatePlayerScore1()
     {
         int i = 0;
@@ -115,19 +129,14 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     }
     #endregion
 
-
-
-
     #region Behaviour
     void Awake()
     {
         //Screen.SetResolution(1080 / 5, 1920 / 5, false);
-     
     }
 
 
-    void Start(
-)
+    void Start()
     {
         CounterViewInst();
         ItemViewInst();
@@ -135,40 +144,50 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
 
 
         ItemView = ItemPrefab.GetComponent<PhotonView>();
-      
+
         playerInfo = new PlayerInfo[4];
         PlayerInfoSet();
 
-    
-    }
 
+    }
     #endregion
-    public void SetTag() {
-
-        playerTag = new string[3];
-        playerTag[0] = "Player1";
-        playerTag[1] = "Player2";
-        playerTag[2] = "Player3";
 
 
-    }
-    
-   
-    public void UpdateNetworkScore(int score)
-    {
-        PhotonNetwork.LocalPlayer.score = score;
-
-
-    }
 
 }
-class PlayerInfo{
-   public string playerNickname;
+public class PlayerInfo
+{
+    public string playerNickname;
+    public TMPro.TextMeshProUGUI playerNicknameText;
+    public TMPro.TextMeshProUGUI scoreText;
+    public bool isLocal = false;
+    public int actorNumber;
     int score;
-
-    public PlayerInfo(string getName) {
-        this.playerNickname = getName;
+    public int Score
+    {
+        get { return score; }
+        set
+        {
+            this.score = value;
+            scoreText.text = score + "";
+        }
     }
-        
+
+    public GameObject PlayerCat;
+
+    public string tag;
+
+    public PlayerInfo(Player p)
+    {
+        playerNickname = p.NickName;
+        if (p.UserId == PhotonNetwork.LocalPlayer.UserId)
+            isLocal = true;
+        actorNumber = p.ActorNumber;
+    }
+    public void SetNickname()
+    {
+
+        playerNicknameText.text = playerNickname;
+    }
 
 }

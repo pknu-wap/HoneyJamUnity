@@ -8,35 +8,47 @@ public class CounterMethods : MonoBehaviour
 {
     [SerializeField]
     GameObject CounterPrefab;
-    public  Counter counter;
+    public Counter counter;
 
+    GameObject GamePlayNetwork;
+    GamePlayNetwork gamePlayNetwork;
     public Text yourCountText; //플레이어가 누른 카운터 수를 나타내는 텍스트
 
     public Text remainingCountText; //카운터의 남은 수를 나타내는 텍스트
-  
+
     public GameObject block;
     public void UpdateSendCount()
     {
-       if( CounterPrefab.GetComponent<PhotonView>().IsMine)
+        if (CounterPrefab.GetComponent<PhotonView>().IsMine)
             CounterPrefab.GetComponent<CounterPhotonView>().networkCurrentCount = counter.RemaingCount;
-        
+
     }
-    void Start() {
-   
+    public void UpdateSendScore()
+    {
+        if (CounterPrefab.GetComponent<PhotonView>().IsMine)
+            CounterPrefab.GetComponent<CounterPhotonView>().networkScore = counter.YourCount;
+
+    }
+    void Start()
+    {
+        GamePlayNetwork = GameObject.FindWithTag("Network");
+        gamePlayNetwork = GamePlayNetwork.GetComponent<GamePlayNetwork>();
+
     }
 
-    public void Init() {
+    public void Init()
+    {
         CounterPrefab = GameObject.FindWithTag("CounterPhotonView");
     }
     public void CounterSub()
-    { 
+    {
         counter.RemaingCount -= counter.CountSize;
         UpdateSendCount();
-     
+
     }
 
     public void CounterPlus(int plusSize)
-    { 
+    {
         counter.RemaingCount += plusSize;
         UpdateSendCount();
     }
@@ -57,10 +69,11 @@ public class CounterMethods : MonoBehaviour
         counter.CountSize = 1;
 
     }
-    public void YourCountPlus() {
-       
+    public void YourCountPlus()
+    {
+
         counter.YourCount += counter.YourCountSize; //버튼 누르면 이 함수를 호출 시켜서 더해줌
-     
+
     }
     public void UpdateRemainingCountText()
     {
@@ -70,5 +83,15 @@ public class CounterMethods : MonoBehaviour
     public void UpdateYourCountText()
     {
         yourCountText.text = " 내 카운트 횟수는" + counter.YourCount + "입니다";
+    }
+
+    public void UpdateLocalScoreText()
+    {
+        foreach (PlayerInfo p in gamePlayNetwork.PlayerInfos)
+            if (p.isLocal)
+            {
+                p.Score = counter.YourCount;
+                break;
+            }
     }
 }

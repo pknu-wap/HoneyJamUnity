@@ -131,7 +131,6 @@ namespace Photon.Pun.Demo.Asteroids
             PhotonNetwork.LocalPlayer.SetCustomProperties(props);
         }
         public override void OnJoinedLobby() {
-            Debug.Log("이건 과연");
 
         }
         public override void OnLeftRoom()
@@ -351,10 +350,8 @@ namespace Photon.Pun.Demo.Asteroids
 
         private void UpdateRoomListView()
         {
-            Debug.Log("실행중 룸리스트업데이트");
             foreach (Realtime.RoomInfo info in cachedRoomList.Values)
             {
-                Debug.Log("외왆되??");
                 GameObject entry = Instantiate(RoomListEntryPrefab);
                 entry.transform.SetParent(RoomListContent.transform);
                 entry.transform.localScale = Vector3.one;

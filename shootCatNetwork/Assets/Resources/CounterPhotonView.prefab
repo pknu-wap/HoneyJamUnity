@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   networkCurrentCount: 0
+  networkScore: 0
+  actorNumber: 0
 --- !u!222 &222925675520924102
 CanvasRenderer:
   m_ObjectHideFlags: 1

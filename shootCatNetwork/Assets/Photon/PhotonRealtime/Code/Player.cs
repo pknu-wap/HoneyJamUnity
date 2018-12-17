@@ -55,7 +55,7 @@ namespace Photon.Realtime
             get { return this.actorNumber; }
         }
 
-        public int score;//내가 임의로 적은거디
+      
         /// <summary>Only one player is controlled by each client. Others are not local.</summary>
         public readonly bool IsLocal;
 

@@ -8,39 +8,68 @@ public class CounterPhotonView : MonoBehaviourPunCallbacks, IPunObservable
     GameObject counterUI;
     Counter counter;
 
-   public int networkCurrentCount;
-    int networkMyScore;
+    GameObject GamePlayNetwork;
+    GamePlayNetwork gamePlayNetwork;
 
+    public int networkCurrentCount;
+    public int networkScore;
+    public int actorNumber;
+    int receiveNetworkScore;
+    int receiveActorNumber;
 
-    void Start () {
-     
-     counterUI = GameObject.FindWithTag("CounterMethods");
-     counter = counterUI.GetComponent<Counter>();
+    void Start()
+    {
+        Init();
+        networkCurrentCount = counter.remainCountSize;
+        actorNumber = PhotonNetwork.LocalPlayer.ActorNumber;
+    }
+
+    void Init() {
+        counterUI = GameObject.FindWithTag("CounterMethods");
+        counter = counterUI.GetComponent<Counter>();
         counterUI.GetComponent<CounterMethods>().Init();
-    }
-	void Update () {
-       
-     
+        GamePlayNetwork = GameObject.FindWithTag("Network");
+        gamePlayNetwork = GamePlayNetwork.GetComponent<GamePlayNetwork>();
+
+
     }
 
-    void UpdateReceiveCount() {
+    void UpdateReceiveCount()
+    {
         if (!photonView.IsMine)
         {
             counter.RemaingCount = networkCurrentCount;
-            Debug.Log(networkCurrentCount);
         }
     }
-          void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+
+    void UpdateReceiveScore() {
+        if (!photonView.IsMine)
+        {
+            foreach (PlayerInfo p in gamePlayNetwork.PlayerInfos)
+                if (p.actorNumber == receiveActorNumber)
+                {
+                    p.Score = receiveNetworkScore;
+                    break;
+                }
+        }
+
+    }
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-     
+
         if (stream.IsWriting)
         {
             stream.SendNext(networkCurrentCount);
+            stream.SendNext(networkScore);
+            stream.SendNext(actorNumber);
         }
         else if (stream.IsReading)
         {
             networkCurrentCount = (int)stream.ReceiveNext();
+            receiveNetworkScore = (int)stream.ReceiveNext();
+            receiveActorNumber = (int)stream.ReceiveNext();
             UpdateReceiveCount();
+            UpdateReceiveScore();
         }
     }
 }
