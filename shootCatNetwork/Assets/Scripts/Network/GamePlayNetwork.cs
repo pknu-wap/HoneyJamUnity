@@ -12,6 +12,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     public DragHandler dragHandler;
     PhotonView ItemView;
     PlayerInfo[] playerInfo;
+    public PlayerInfo LocalPlayer;
     public List<PlayerInfo> PlayerInfos = new List<PlayerInfo>();
     List<string> TagList = new List<string>();
     string[] playerTag;
@@ -59,20 +60,29 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             PlayerInfos.Add(new PlayerInfo(p));
+           
 
         }
         int i = 0;
+        int j = 0;
         foreach (PlayerInfo p in PlayerInfos)
         {
+            if (p.isLocal)
+                LocalPlayer = p;
+
+          
             if (!p.isLocal)
             {
-                PlayerCat[i].tag = playerTag[i];
-                p.tag = playerTag[i];
-                p.PlayerCat = PlayerCat[i];
+                Debug.Log(p.playerNickname + " " + p.isLocal);
+                PlayerCat[j].tag = playerTag[j];
+                p.tag = playerTag[j];
+                p.PlayerCat = PlayerCat[j];
+                j++;
             }
             p.playerNicknameText = PlayerNickname[i];
             p.SetNickname();
             p.scoreText = PlayerScore[i];
+         
             i++;
         }
         i = 0;
@@ -87,13 +97,11 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
 
     #endregion
     #region RPCs
-    public void UpdatePlayerScore()
+    public void UpdateLoser()//플레이어들에게 누가 패배자인지 확실히 알려주지
     {
-        //ItemView.ViewID = ItemViewID;
-        Debug.Log("아니 왜 점수 오르는게 안되냐고 왜 대체");
-
-        CounterView.RPC("_UpdatePlayerScore", RpcTarget.All);
+        CounterView.RPC("_UpdateLoser", RpcTarget.All,LocalPlayer.actorNumber);
     }
+
     public void NetworkIce()//Ice 아이템 적용
     {
         Debug.Log(ItemView + "  " + ItemView.ViewID);
@@ -112,21 +120,6 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         Debug.Log(ItemView + "  " + ItemView.ViewID);
         ItemView.RPC("_NetworkDoubleCount", RpcTarget.Others);
     }
-
-
-
-
-    public void _UpdatePlayerScore1()
-    {
-        int i = 0;
-        foreach (Player p in PhotonNetwork.PlayerList)
-        {
-            Debug.Log(PlayerScore[i].text);
-            PlayerScore[i].text = p.score + "";
-            i++;
-        }
-        i = 0;
-    }
     #endregion
 
     #region Behaviour
@@ -134,8 +127,6 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     {
         //Screen.SetResolution(1080 / 5, 1920 / 5, false);
     }
-
-
     void Start()
     {
         CounterViewInst();
@@ -161,6 +152,7 @@ public class PlayerInfo
     public TMPro.TextMeshProUGUI playerNicknameText;
     public TMPro.TextMeshProUGUI scoreText;
     public bool isLocal = false;
+    public bool isLoser = false;
     public int actorNumber;
     int score;
     public int Score
@@ -179,9 +171,13 @@ public class PlayerInfo
 
     public PlayerInfo(Player p)
     {
+        Debug.Log(p.NickName + " " + p.UserId + " " + PhotonNetwork.LocalPlayer.UserId);
         playerNickname = p.NickName;
         if (p.UserId == PhotonNetwork.LocalPlayer.UserId)
-            isLocal = true;
+        {
+            this.isLocal = true;
+           
+        }
         actorNumber = p.ActorNumber;
     }
     public void SetNickname()

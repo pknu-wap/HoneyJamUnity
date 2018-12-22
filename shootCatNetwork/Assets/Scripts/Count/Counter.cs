@@ -19,8 +19,14 @@ public class Counter : MonoBehaviourPunCallbacks
         set
         {
             this.remainingCount = value;
-            if (remainingCount < 0)
+            if (remainingCount <= 0)
+            {
+                isStart = false;
+                GamePlayNetwork.GetComponent<GamePlayNetwork>().LocalPlayer.isLoser = true;
+                GamePlayNetwork.GetComponent<GamePlayNetwork>().UpdateLoser();
                 GameOver();
+               
+            }
             if (isStart)
                 CounterUI.GetComponent<CounterMethods>().UpdateRemainingCountText();
 
@@ -40,6 +46,9 @@ public class Counter : MonoBehaviourPunCallbacks
                 CounterUI.GetComponent<CounterMethods>().UpdateLocalScoreText();
             }
         }
+    }   void Update()
+    {
+
     }
 
     [Range(0, 500)]
@@ -73,9 +82,9 @@ public class Counter : MonoBehaviourPunCallbacks
     }
     public void GameOver()
     {
+        CounterUI.GetComponent<CounterMethods>().StartRankingPanel();
         Debug.Log("remainCount " + remainingCount);
-        /*      RakingBoardPanel.SetActive(true)*/
-        ;
+       
     }
 
 }

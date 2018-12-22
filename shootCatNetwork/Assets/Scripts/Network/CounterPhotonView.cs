@@ -34,6 +34,20 @@ public class CounterPhotonView : MonoBehaviourPunCallbacks, IPunObservable
 
     }
 
+    [PunRPC]
+    void _UpdateLoser(int actorNumber) {
+        foreach (PlayerInfo p in gamePlayNetwork.PlayerInfos)
+        {
+            if (p.actorNumber == actorNumber)
+            {
+                p.isLoser = true;
+                break;
+            }
+
+        }
+        counterUI.GetComponent<CounterMethods>().StartRankingPanel();
+       
+    }
     void UpdateReceiveCount()
     {
         if (!photonView.IsMine)

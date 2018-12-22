@@ -17,6 +17,8 @@ public class CounterMethods : MonoBehaviour
     public Text remainingCountText; //카운터의 남은 수를 나타내는 텍스트
 
     public GameObject block;
+
+    public GameObject RankingPanel;
     public void UpdateSendCount()
     {
         if (CounterPrefab.GetComponent<PhotonView>().IsMine)
@@ -93,5 +95,9 @@ public class CounterMethods : MonoBehaviour
                 p.Score = counter.YourCount;
                 break;
             }
+    }
+
+    public void StartRankingPanel() {
+        RankingPanel.SetActive(true);
     }
 }
