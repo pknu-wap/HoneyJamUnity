@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
+
 public class GamePlayNetwork : MonoBehaviourPunCallbacks
 {
     #region Variable
     PhotonView CounterView;
     public GameObject CounterPrefab;
     public GameObject ItemPrefab;
-    public DragHandler dragHandler;
+   
     PhotonView ItemView;
     PlayerInfo[] playerInfo;
     public PlayerInfo LocalPlayer;
@@ -21,6 +23,16 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     public GameObject[] PlayerCat;
     GameObject CounterViewPrefab;
     #endregion
+
+    #region ItemVariable
+    public GameObject IceBtn;
+    public GameObject BlockBtn;
+
+
+  
+ 
+    #endregion
+
 
     #region ViewInstantiate
 
@@ -104,14 +116,14 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
 
     public void NetworkIce()//Ice 아이템 적용
     {
-        Debug.Log(ItemView + "  " + ItemView.ViewID);
-        ItemView.RPC("_NetworkIce", RpcTarget.Others, dragHandler.target);
+        Debug.Log(IceBtn.GetComponent<DragHandler>().target);
+        ItemView.RPC("_NetworkIce", RpcTarget.Others, IceBtn.GetComponent<DragHandler>().target);
     }
 
     public void NetworkCrashBlock()//CrashBlock 아이템 적용
     {
         Debug.Log(ItemView + "  " + ItemView.ViewID);
-        ItemView.RPC("_NetworkCrashBlock", RpcTarget.Others);
+        ItemView.RPC("_NetworkCrashBlock", RpcTarget.Others, BlockBtn.GetComponent<DragHandler>().target);
     }
 
     public void NetworkDoubleCount()//CrashBlock 아이템 적용

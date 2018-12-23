@@ -79,12 +79,12 @@ public class CounterMethods : MonoBehaviour
     }
     public void UpdateRemainingCountText()
     {
-        remainingCountText.text = "Count : " + counter.RemaingCount;
+        remainingCountText.text = "" + counter.RemaingCount;
     }
 
     public void UpdateYourCountText()
     {
-        yourCountText.text = " 내 카운트 횟수는" + counter.YourCount + "입니다";
+        yourCountText.text = "Score : "+ counter.YourCount;
     }
 
     public void UpdateLocalScoreText()

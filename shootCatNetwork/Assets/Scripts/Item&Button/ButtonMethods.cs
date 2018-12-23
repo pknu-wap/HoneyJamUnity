@@ -8,18 +8,18 @@ public class ButtonMethods : MonoBehaviour
 {
     public Button PushButton;//pushButton
     public CounterMethods counterActor;
-    public SpriteRenderer catPawIce;
-    Image image;
-    Image Image
-    {
-        get
-        {
-            if (image == null)
-                image = GetComponent<Image>();
-            return image;
-        }
-    }
-    public SpriteRenderer catPawNormal;
+    
+    //Image image;
+    //Image Image
+    //{
+    //    get
+    //    {
+    //        if (image == null)
+    //            image = GetComponent<Image>();
+    //        return image;
+    //    }
+    //}
+   
     #region Behavior
     void Start()
     {
@@ -33,7 +33,7 @@ public class ButtonMethods : MonoBehaviour
     #endregion
     public void GotoLobby()
     {
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("Lobby");//수정해야함
     }
 
     public void Exit()
@@ -52,11 +52,9 @@ public class ButtonMethods : MonoBehaviour
             btn.interactable = btn.interactable ? false : true;
     }
 
-    public void BtnImageChange(Button btn,Image image)
+    public void ImageChange(GameObject obj,Image image)
     {
-
-        btn.GetComponent<Image>().sprite = image.GetComponent<Image>().sprite;
-    
+        obj.GetComponent<Image>().sprite = image.sprite;
     }
 
 

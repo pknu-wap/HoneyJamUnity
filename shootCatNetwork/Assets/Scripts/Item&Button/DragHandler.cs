@@ -8,10 +8,14 @@ using UnityEngine.EventSystems;
 public class DragHandler : MonoBehaviourPunCallbacks, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public static GameObject beingDragged;
-    public string target;
+    public int target;
     Vector3 startPos = new Vector3(-400, -375, 10);
-    
-   
+    GameObject GamePlayNetwork;
+    GamePlayNetwork gamePlayNetwork;
+    void Start() {
+        GamePlayNetwork = GameObject.FindWithTag("Network");
+        gamePlayNetwork = GamePlayNetwork.GetComponent<GamePlayNetwork>();
+    }
 
     #region DragEvent
     public void OnBeginDrag(PointerEventData eventData)
@@ -24,7 +28,7 @@ public class DragHandler : MonoBehaviourPunCallbacks, IBeginDragHandler, IDragHa
     }
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (target == "")
+        if (target == 0)
             gameObject.GetComponent<RectTransform>().localPosition = startPos;
        
         else
@@ -40,16 +44,21 @@ public class DragHandler : MonoBehaviourPunCallbacks, IBeginDragHandler, IDragHa
     void OnTriggerEnter(Collider col)
     {
         Debug.Log("TriggerEnter");
-        foreach (Player p in PhotonNetwork.PlayerList)
+        foreach (PlayerInfo p in gamePlayNetwork.PlayerInfos)
         {
-            if (col.tag.Equals(p.ActorNumber))
-                target = p.ActorNumber+"";
+            if (col.tag.Equals(p.tag))
+            {
+                target = p.actorNumber;
+                Debug.Log(target);
+                break;
+            }
         }
      
     }
     void OnTriggerExit(Collider col)
     {
-        target = "";
+        Debug.Log("TriggerExit");
+        target = 0;
     }
 }
 

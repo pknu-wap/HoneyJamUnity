@@ -9,7 +9,7 @@ using Photon.Realtime;
 
 public class ItemScript : MonoBehaviour
 {
-    public Button pushBtn;
+    public GameObject pushBtn;
     public ButtonMethods ButtonMethods;
     public CounterMethods CounterMethods;//카운터 메소드 가져옴
     public EventTrigger pushBtnEventTrigger;
@@ -40,11 +40,12 @@ public class ItemScript : MonoBehaviour
     public void ActiveIce()
     {
         pushBtnEventTrigger.enabled = false;
-        ButtonMethods.BtnImageChange(pushBtn, catPawIce);
+        pushBtn.GetComponent<Image>().sprite = catPawIce.sprite;
+       
         Debug.Log(Time.time);
         Invoke("ButtonNormal", iceTime);
     }
-
+ 
 
     public GameObject block;
     public void ActiveCrashBlock()
@@ -77,9 +78,8 @@ public class ItemScript : MonoBehaviour
     #region ActiveMethod
     public void ButtonNormal()
     {
-        ButtonMethods.BtnImageChange(pushBtn, catPawNormal);
-        Debug.Log(Time.time);
-        pushBtnEventTrigger.enabled = true;
+        pushBtn.GetComponent<Image>().sprite = catPawNormal.sprite;
+        pushBtn.GetComponent<EventTrigger>().enabled = true;
     }
     public void CountSizeNormal()
     {

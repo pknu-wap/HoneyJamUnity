@@ -6,23 +6,27 @@ using Photon.Realtime;
 public class ItemPhotonView : MonoBehaviour {
 
     ItemScript itemScript;
-
+    GameObject GamePlayNetwork;
+    GamePlayNetwork gamePlayNetwork;
 	void Start () {
         itemScript = GameObject.Find("ItemScript").GetComponent<ItemScript>();
+        GamePlayNetwork = GameObject.FindWithTag("Network");
+        gamePlayNetwork = GamePlayNetwork.GetComponent<GamePlayNetwork>();
 	}
 	
     #region PunRpc
     [PunRPC]
-    public void _NetworkIce(string targetID)
+    public void _NetworkIce(int targetID)
     {
-        if (!PhotonNetwork.LocalPlayer.ActorNumber.Equals(targetID))
+     
+        if (gamePlayNetwork.LocalPlayer.actorNumber==targetID)
             itemScript.ActiveIce();
-        Debug.Log(PhotonNetwork.LocalPlayer.UserId);
+      
     }
     [PunRPC]
-    public void _NetworkCrashBlock()
+    public void _NetworkCrashBlock(string targetID)
     {
-        Debug.Log(this.GetComponent<PhotonView>().ViewID);
+        if (gamePlayNetwork.LocalPlayer.actorNumber.Equals(targetID))
         itemScript.ActiveCrashBlock();
     }
 
@@ -30,7 +34,6 @@ public class ItemPhotonView : MonoBehaviour {
     [PunRPC]
     public void NetworkDoubleCount()
     {
-        Debug.Log(this.GetComponent<PhotonView>().ViewID);
         itemScript.ActiveDoubleCount();
     }
     #endregion

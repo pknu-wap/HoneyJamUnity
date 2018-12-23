@@ -29,8 +29,6 @@ public class Counter : MonoBehaviourPunCallbacks
             }
             if (isStart)
                 CounterUI.GetComponent<CounterMethods>().UpdateRemainingCountText();
-
-
         }
     }
     public int YourCount
@@ -48,7 +46,6 @@ public class Counter : MonoBehaviourPunCallbacks
         }
     }   void Update()
     {
-
     }
 
     [Range(0, 500)]
