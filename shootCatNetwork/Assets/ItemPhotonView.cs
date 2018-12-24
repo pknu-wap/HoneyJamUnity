@@ -24,9 +24,9 @@ public class ItemPhotonView : MonoBehaviour {
       
     }
     [PunRPC]
-    public void _NetworkCrashBlock(string targetID)
+    public void _NetworkCrashBlock(int targetID)
     {
-        if (gamePlayNetwork.LocalPlayer.actorNumber.Equals(targetID))
+        if (gamePlayNetwork.LocalPlayer.actorNumber == targetID)
         itemScript.ActiveCrashBlock();
     }
 

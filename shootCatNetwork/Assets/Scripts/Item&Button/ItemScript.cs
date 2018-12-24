@@ -15,6 +15,7 @@ public class ItemScript : MonoBehaviour
     public EventTrigger pushBtnEventTrigger;
     public Image catPawIce;
     public Image catPawNormal;
+    public GameObject BlockParent;
 
     public Image countUp; // 남은 숫자를 늘리는 아이템
     public Transform centerPosition;
@@ -50,7 +51,7 @@ public class ItemScript : MonoBehaviour
     public GameObject block;
     public void ActiveCrashBlock()
     {
-        Instantiate(block).transform.SetParent(centerPosition);
+        Instantiate(block,BlockParent.transform);
         pushBtnEventTrigger.enabled = false;
     }
 

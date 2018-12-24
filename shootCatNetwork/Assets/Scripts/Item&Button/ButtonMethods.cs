@@ -1,12 +1,13 @@
 ﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ButtonMethods : MonoBehaviour
 {
-    public Button PushButton;//pushButton
+    public GameObject PushButton;//pushButton
     public CounterMethods counterActor;
     
     //Image image;
@@ -57,6 +58,9 @@ public class ButtonMethods : MonoBehaviour
         obj.GetComponent<Image>().sprite = image.sprite;
     }
 
+    public void PushButtonEnable() {
+        PushButton.GetComponent<EventTrigger>().enabled = true;
+    }
 
     #region Item
     

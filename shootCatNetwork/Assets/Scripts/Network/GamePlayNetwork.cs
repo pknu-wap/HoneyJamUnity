@@ -11,7 +11,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     PhotonView CounterView;
     public GameObject CounterPrefab;
     public GameObject ItemPrefab;
-   
+  
     PhotonView ItemView;
     PlayerInfo[] playerInfo;
     public PlayerInfo LocalPlayer;
@@ -28,11 +28,8 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     public GameObject IceBtn;
     public GameObject BlockBtn;
 
-
-  
  
     #endregion
-
 
     #region ViewInstantiate
 
@@ -72,8 +69,6 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             PlayerInfos.Add(new PlayerInfo(p));
-           
-
         }
         int i = 0;
         int j = 0;
