@@ -49,6 +49,45 @@ public class CounterPhotonView : MonoBehaviourPunCallbacks, IPunObservable
         counterUI.GetComponent<CounterMethods>().StartRankingPanel();
        
     }
+    [PunRPC]
+    void _ReadyToMaster(int actorNumber)
+    {
+        foreach (PlayerInfo p in gamePlayNetwork.PlayerInfos)
+        {
+            if (p.actorNumber == actorNumber)
+            {
+                p.isReady = true;
+                break;
+            }
+            
+        }
+        foreach (PlayerInfo p in gamePlayNetwork.PlayerInfos)
+        {
+            if (!p.isReady) break;
+            gamePlayNetwork.Ready();
+        }
+ 
+
+    }
+
+    [PunRPC]
+    void _Ready()
+    {
+
+        GameObject.FindWithTag("CounterMethods").GetComponent<CounterMethods>().LoadingPanel.SetActive(false);
+        GameObject.FindWithTag("CounterMethods").GetComponent<CounterMethods>().CountdownText.SetActive(true);
+        GameObject.FindWithTag("Audio").GetComponent<AudioSource>().enabled = true;
+    }
+
+    [PunRPC]
+    void _Ready(int actorNumber)
+    {
+       
+            GameObject.FindWithTag("CounterMethods").GetComponent<CounterMethods>().LoadingPanel.SetActive(false);
+            GameObject.FindWithTag("CounterMethods").GetComponent<CounterMethods>().CountdownText.SetActive(true);
+            GameObject.FindWithTag("Audio").GetComponent<AudioSource>().enabled = true;
+        
+    }
     void UpdateReceiveCount()
     {
         if (!photonView.IsMine)

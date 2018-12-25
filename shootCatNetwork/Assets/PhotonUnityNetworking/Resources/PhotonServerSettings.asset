@@ -38,4 +38,7 @@ MonoBehaviour:
   - _UpdatePlayerScore
   - NetworkDoubleCount
   - _UpdateLoser
+  - _Ready
+  - UpdateReceiveCount
+  - _ReadyToMaster
   DisableAutoOpenWizard: 1

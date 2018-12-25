@@ -12,6 +12,7 @@ TagManager:
   - Player2
   - Player3
   - ButtonMethods
+  - Audio
   layers:
   - Default
   - TransparentFX

@@ -11,7 +11,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     PhotonView CounterView;
     public GameObject CounterPrefab;
     public GameObject ItemPrefab;
-  
+
     PhotonView ItemView;
     PlayerInfo[] playerInfo;
     public PlayerInfo LocalPlayer;
@@ -28,7 +28,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     public GameObject IceBtn;
     public GameObject BlockBtn;
 
- 
+
     #endregion
 
     #region ViewInstantiate
@@ -77,7 +77,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
             if (p.isLocal)
                 LocalPlayer = p;
 
-          
+
             if (!p.isLocal)
             {
                 Debug.Log(p.playerNickname + " " + p.isLocal);
@@ -89,7 +89,7 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
             p.playerNicknameText = PlayerNickname[i];
             p.SetNickname();
             p.scoreText = PlayerScore[i];
-         
+
             i++;
         }
         i = 0;
@@ -106,8 +106,26 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     #region RPCs
     public void UpdateLoser()//플레이어들에게 누가 패배자인지 확실히 알려주지
     {
-        CounterView.RPC("_UpdateLoser", RpcTarget.All,LocalPlayer.actorNumber);
+        GameObject.FindWithTag("CounterMethods").GetComponent<CounterMethods>().StartRankingPanel();
+        CounterView.RPC("_UpdateLoser", RpcTarget.Others, LocalPlayer.actorNumber);
     }
+    public void ReadyToMaster()
+    {
+       CounterView.RPC("_ReadyToMaster", RpcTarget.MasterClient, LocalPlayer.actorNumber);
+        
+    }
+    public void Ready() {
+
+       
+        GameObject.FindWithTag("CounterMethods").GetComponent<CounterMethods>().LoadingPanel.SetActive(false);
+        GameObject.FindWithTag("CounterMethods").GetComponent<CounterMethods>().CountdownText.SetActive(true);
+        GameObject.FindWithTag("Audio").GetComponent<AudioSource>().enabled = true;
+        CounterView.RPC("_Ready", RpcTarget.Others, LocalPlayer.actorNumber);
+    }
+
+  
+
+
 
     public void NetworkIce()//Ice 아이템 적용
     {
@@ -130,9 +148,10 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
     #endregion
 
     #region Behaviour
-    void Awake()
-    {
-        //Screen.SetResolution(1080 / 5, 1920 / 5, false);
+    
+    void Awake() {
+       
+
     }
     void Start()
     {
@@ -140,11 +159,14 @@ public class GamePlayNetwork : MonoBehaviourPunCallbacks
         ItemViewInst();
         SetTag();
 
-
-        ItemView = ItemPrefab.GetComponent<PhotonView>();
-
         playerInfo = new PlayerInfo[4];
         PlayerInfoSet();
+        ItemView = ItemPrefab.GetComponent<PhotonView>();
+
+
+
+        
+        Invoke("Ready", 3); 
 
 
     }
@@ -160,6 +182,7 @@ public class PlayerInfo
     public TMPro.TextMeshProUGUI scoreText;
     public bool isLocal = false;
     public bool isLoser = false;
+    public bool isReady = false;
     public int actorNumber;
     int score;
     public int Score
@@ -183,13 +206,14 @@ public class PlayerInfo
         if (p.UserId == PhotonNetwork.LocalPlayer.UserId)
         {
             this.isLocal = true;
+            this.isReady = true;
            
         }
         actorNumber = p.ActorNumber;
     }
     public void SetNickname()
     {
-
+       
         playerNicknameText.text = playerNickname;
     }
 
