@@ -62,6 +62,13 @@ public class ButtonMethods : MonoBehaviour
         PushButton.GetComponent<EventTrigger>().enabled = true;
     }
 
+    public void PushButtonShake() {
+
+       
+
+    }
+
+
     #region Item
     
     #endregion

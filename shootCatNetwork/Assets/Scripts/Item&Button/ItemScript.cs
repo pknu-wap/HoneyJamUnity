@@ -13,7 +13,7 @@ public class ItemScript : MonoBehaviour
     public ButtonMethods ButtonMethods;
     public CounterMethods CounterMethods;//카운터 메소드 가져옴
     public EventTrigger pushBtnEventTrigger;
-    public Image catPawIce;
+    public GameObject catPawIce;
     public Image catPawNormal;
     public GameObject BlockParent;
 
@@ -40,8 +40,9 @@ public class ItemScript : MonoBehaviour
     public float iceTime;//얼릴 시간
     public void ActiveIce()
     {
-        pushBtnEventTrigger.enabled = false;
-        pushBtn.GetComponent<Image>().sprite = catPawIce.sprite;
+
+        pushBtn.SetActive(false);
+        catPawIce.SetActive(true);
        
         Debug.Log(Time.time);
         Invoke("ButtonNormal", iceTime);
@@ -81,6 +82,8 @@ public class ItemScript : MonoBehaviour
     {
         pushBtn.GetComponent<Image>().sprite = catPawNormal.sprite;
         pushBtn.GetComponent<EventTrigger>().enabled = true;
+        pushBtn.SetActive(true);
+        catPawIce.SetActive(false);
     }
     public void CountSizeNormal()
     {
