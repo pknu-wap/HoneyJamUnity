@@ -59,6 +59,7 @@ public class ButtonMethods : MonoBehaviour
     }
 
     public void PushButtonEnable() {
+        PushButton.SetActive(true);
         PushButton.GetComponent<EventTrigger>().enabled = true;
     }
 

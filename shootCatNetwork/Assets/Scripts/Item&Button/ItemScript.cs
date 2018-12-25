@@ -14,6 +14,7 @@ public class ItemScript : MonoBehaviour
     public CounterMethods CounterMethods;//카운터 메소드 가져옴
     public EventTrigger pushBtnEventTrigger;
     public GameObject catPawIce;
+    public GameObject catPawDouble;
     public Image catPawNormal;
     public GameObject BlockParent;
 
@@ -52,6 +53,7 @@ public class ItemScript : MonoBehaviour
     public GameObject block;
     public void ActiveCrashBlock()
     {
+        pushBtn.SetActive(false);
         Instantiate(block,BlockParent.transform);
         pushBtnEventTrigger.enabled = false;
     }
@@ -68,7 +70,8 @@ public class ItemScript : MonoBehaviour
     public void ActiveDoubleCount()//아이템 사용시 고양이 손 두개가 그려진 이미지로 바뀌면서 카운트를 2씩 깎음.
     {
         CounterMethods.DoubleCount();
-
+        pushBtn.SetActive(false);
+        catPawDouble.SetActive(true);
         Invoke("ButtonNormal", doubleTime);
         Invoke("CountSizeNormal", doubleTime);
 
@@ -84,6 +87,7 @@ public class ItemScript : MonoBehaviour
         pushBtn.GetComponent<EventTrigger>().enabled = true;
         pushBtn.SetActive(true);
         catPawIce.SetActive(false);
+        catPawDouble.SetActive(false);
     }
     public void CountSizeNormal()
     {

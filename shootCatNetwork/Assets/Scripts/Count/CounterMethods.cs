@@ -137,7 +137,7 @@ public class CounterMethods : MonoBehaviour
  
     public void ShakeCount() {
         gameObject.transform.position = InitTransform;
-        Debug.Log(InitTransform);
+        //Debug.Log(InitTransform);
         gameObject.transform.DOPunchPosition(new Vector3(30,0,0),1);
         gameObject.transform.position = InitTransform;
 

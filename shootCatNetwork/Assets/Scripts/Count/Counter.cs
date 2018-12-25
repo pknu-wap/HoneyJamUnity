@@ -9,6 +9,7 @@ public class Counter : MonoBehaviourPunCallbacks
     GameObject GamePlayNetwork;
     GameObject CounterUI;
     PhotonView CounterPhotonView;
+    public GameObject Fish;
     bool isStart = false;
 
     [SerializeField]
@@ -112,6 +113,7 @@ public class Counter : MonoBehaviourPunCallbacks
     }
     public void GameOver()
     {
+        Fish.SetActive(false);
         CounterUI.GetComponent<CounterMethods>().StartRankingPanel();
         Debug.Log("remainCount " + remainingCount);
        
