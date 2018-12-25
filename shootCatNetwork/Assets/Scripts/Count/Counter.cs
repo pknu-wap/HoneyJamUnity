@@ -13,24 +13,57 @@ public class Counter : MonoBehaviourPunCallbacks
 
     [SerializeField]
     private int remainingCount;//카운터의 남은 수
+    [Range(0, 500)]
+    public int TwoScoreCount;//점수 2 주는 카운터 제한
+    [Range(0, 500)]
+    public int TenScoreCount;//점수 10 주는 카운터 제한
+
     public int RemaingCount
     {
         get { return remainingCount; }
         set
         {
             this.remainingCount = value;
+
+
+            if (RemaingCount >= TenScoreCount)
+                InitCountMethod();
+            if (TenScoreCount < RemaingCount && RemaingCount <= TwoScoreCount)
+                TwoScoreCountMethod();
+
+
+            if (RemaingCount <= TenScoreCount) 
+                TenScoreCountMethod();
+            
+          
             if (remainingCount <= 0)
             {
                 isStart = false;
                 GamePlayNetwork.GetComponent<GamePlayNetwork>().LocalPlayer.isLoser = true;
                 GamePlayNetwork.GetComponent<GamePlayNetwork>().UpdateLoser();
                 GameOver();
-               
             }
             if (isStart)
                 CounterUI.GetComponent<CounterMethods>().UpdateRemainingCountText();
         }
     }
+    #region 카운터 수에 따라 동작하는 메소드
+    void TwoScoreCountMethod()
+    {
+        YourCountSize = 2;
+        CounterUI.GetComponent<CounterMethods>().Changeimg(50);
+    }
+    void TenScoreCountMethod()
+    {
+        YourCountSize = 10;
+        CounterUI.GetComponent<CounterMethods>().Changeimg(10);
+        CounterUI.GetComponent<CounterMethods>().HideCount();
+    }
+    void InitCountMethod() {
+        CounterUI.GetComponent<CounterMethods>().Changeimg(100);
+        CounterUI.GetComponent<CounterMethods>().ActiveCount();
+    }
+    #endregion
     public int YourCount
     {
         get { return yourCount; }

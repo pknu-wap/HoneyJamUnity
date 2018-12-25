@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: e28a88e7db7902f48ba97d8df890cb99
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Quiet Meows
+  fontNames:
+  - Quiet Meows
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4a601c0da0746ba4ca1736655387f5b5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

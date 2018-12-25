@@ -19,7 +19,7 @@ namespace Photon.Pun.Demo.Asteroids
         [Header("Create Room Panel")]
         public GameObject CreateRoomPanel;
 
-        public InputField RoomNameInputField;
+        public TMPro.TMP_InputField RoomNameInputField;
         public InputField MaxPlayersInputField;
 
         [Header("Join Random Room Panel")]
@@ -92,7 +92,7 @@ namespace Photon.Pun.Demo.Asteroids
         {
             string roomName = "Room " + Random.Range(1000, 10000);
 
-            RoomOptions options = new RoomOptions {MaxPlayers = 8};
+            RoomOptions options = new RoomOptions {MaxPlayers = 4};
 
             PhotonNetwork.CreateRoom(roomName, options, null);
         }
@@ -217,7 +217,7 @@ namespace Photon.Pun.Demo.Asteroids
             byte.TryParse(MaxPlayersInputField.text, out maxPlayers);
             maxPlayers = (byte) Mathf.Clamp(maxPlayers, 2, 8);
 
-            RoomOptions options = new RoomOptions {MaxPlayers = maxPlayers};
+            RoomOptions options = new RoomOptions {MaxPlayers = 4};
 
             PhotonNetwork.CreateRoom(roomName, options, null);
         }

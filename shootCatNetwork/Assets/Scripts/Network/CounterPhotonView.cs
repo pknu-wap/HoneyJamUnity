@@ -10,7 +10,7 @@ public class CounterPhotonView : MonoBehaviourPunCallbacks, IPunObservable
 
     GameObject GamePlayNetwork;
     GamePlayNetwork gamePlayNetwork;
-
+    CounterMethods counterMethods;
     public int networkCurrentCount;
     public int networkScore;
     public int actorNumber;
@@ -26,6 +26,7 @@ public class CounterPhotonView : MonoBehaviourPunCallbacks, IPunObservable
 
     void Init() {
         counterUI = GameObject.FindWithTag("CounterMethods");
+        counterMethods = counterUI.GetComponent<CounterMethods>();
         counter = counterUI.GetComponent<Counter>();
         counterUI.GetComponent<CounterMethods>().Init();
         GamePlayNetwork = GameObject.FindWithTag("Network");
@@ -84,6 +85,7 @@ public class CounterPhotonView : MonoBehaviourPunCallbacks, IPunObservable
             receiveActorNumber = (int)stream.ReceiveNext();
             UpdateReceiveCount();
             UpdateReceiveScore();
+            counterMethods.ShakeCount();
         }
     }
 }
