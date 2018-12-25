@@ -10,6 +10,23 @@ public class CountDownText : MonoBehaviour
 
     [Range(-5, 10)]
     public float countDown;
+
+
+    public float CountDown
+    {
+        get { return countDown; }
+        set
+        {
+            CountDownTxt.text = "" + (int)countDown;
+            this.countDown = value;
+            if (countDown <= 0)
+                GameStart();
+
+
+        }
+    }
+
+
     void Start()
     {
 
@@ -17,17 +34,15 @@ public class CountDownText : MonoBehaviour
 
     void Update()
     {
-        countDown -= Time.deltaTime;
-        CountDownTxt.text = "" + (int)countDown;
-        if (countDown <= 0)
-            GameStart();
+        CountDown -= Time.deltaTime;
+       
 
     }
 
     void GameStart()
     {
         CountDownPanel.transform.position += new Vector3(0, 20, 0);
-        Debug.Log("CountDown == 0");
+     
         if (countDown < -3)
             Destroy(CountDownPanel);
     }

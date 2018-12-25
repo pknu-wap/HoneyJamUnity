@@ -15,7 +15,8 @@ public class CounterMethods : MonoBehaviour
     GameObject GamePlayNetwork;
     GamePlayNetwork gamePlayNetwork;
     public Text yourCountText; //플레이어가 누른 카운터 수를 나타내는 텍스트
-
+    public GameObject CountdownText;
+    public GameObject LoadingPanel;
     public Text remainingCountText; //카운터의 남은 수를 나타내는 텍스트
     public Text hideCountText;//카운터 가리고 이제 ???로보여줌
     public GameObject block;

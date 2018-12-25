@@ -37,6 +37,7 @@ namespace Photon.Pun.Demo.Asteroids
         public Button StartGameButton;
         public GameObject PlayerListEntryPrefab;
 
+        public GameObject LoadingPanel;
         private Dictionary<string, Realtime.RoomInfo> cachedRoomList;
         private Dictionary<string, GameObject> roomListEntries;
         private Dictionary<int, GameObject> playerListEntries;
@@ -46,6 +47,7 @@ namespace Photon.Pun.Demo.Asteroids
         public void Awake()
         {
             Screen.SetResolution(1080 / 5, 1920 / 5, false);
+
             PhotonNetwork.AutomaticallySyncScene = true;
 
             cachedRoomList = new Dictionary<string, Realtime.RoomInfo>();
@@ -263,12 +265,11 @@ namespace Photon.Pun.Demo.Asteroids
         {
             PhotonNetwork.CurrentRoom.IsOpen = false;
             PhotonNetwork.CurrentRoom.IsVisible = false;
-
+            SetActivePanel("LoadingPanel");
             PhotonNetwork.LoadLevel("GamePlay");
         }
 
         #endregion
-
         private bool CheckPlayersReady()
         {
             if (!PhotonNetwork.IsMasterClient)
@@ -318,6 +319,7 @@ namespace Photon.Pun.Demo.Asteroids
             JoinRandomRoomPanel.SetActive(activePanel.Equals(JoinRandomRoomPanel.name));
             RoomListPanel.SetActive(activePanel.Equals(RoomListPanel.name));    // UI should call OnRoomListButtonClicked() to activate this
             InsideRoomPanel.SetActive(activePanel.Equals(InsideRoomPanel.name));
+            LoadingPanel.SetActive(activePanel.Equals(LoadingPanel.name));
         }
 
         private void UpdateCachedRoomList(List<Realtime.RoomInfo> roomList)
