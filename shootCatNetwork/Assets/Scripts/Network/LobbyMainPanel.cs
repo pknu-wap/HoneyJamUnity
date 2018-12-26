@@ -112,7 +112,7 @@ namespace Photon.Pun.Demo.Asteroids
             {
                 GameObject entry = Instantiate(PlayerListEntryPrefab);
                 entry.transform.SetParent(InsideRoomPanel.transform);
-                entry.transform.localScale = Vector3.one;
+                entry.transform.localScale = new Vector3(3, 3, 1);
                 entry.GetComponent<PlayerListEntry>().Initialize(p.ActorNumber, p.NickName);
 
                 object isPlayerReady;
@@ -152,7 +152,7 @@ namespace Photon.Pun.Demo.Asteroids
         {
             GameObject entry = Instantiate(PlayerListEntryPrefab);
             entry.transform.SetParent(InsideRoomPanel.transform);
-            entry.transform.localScale = Vector3.one;
+            entry.transform.localScale = new Vector3(3, 3, 1);
             entry.GetComponent<PlayerListEntry>().Initialize(newPlayer.ActorNumber, newPlayer.NickName);
 
             playerListEntries.Add(newPlayer.ActorNumber, entry);
@@ -216,8 +216,8 @@ namespace Photon.Pun.Demo.Asteroids
             roomName = (roomName.Equals(string.Empty)) ? "Room " + Random.Range(1000, 10000) : roomName;
 
             byte maxPlayers;
-            byte.TryParse(MaxPlayersInputField.text, out maxPlayers);
-            maxPlayers = (byte) Mathf.Clamp(maxPlayers, 2, 8);
+            //byte.TryParse(MaxPlayersInputField.text, out maxPlayers);
+            //maxPlayers = (byte) Mathf.Clamp(maxPlayers, 2, 8);
 
             RoomOptions options = new RoomOptions {MaxPlayers = 4};
 
